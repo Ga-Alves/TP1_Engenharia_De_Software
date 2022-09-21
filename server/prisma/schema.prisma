@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Atualizar banco de dados:
+// npx prisma migrate dev
+
+model Student {
+  id         String   @id @default(uuid())
+  name       String
+  course     String
+  university String
+  term       String
+  email      String   @unique
+  password   String
+  created_at DateTime @default(now())
+
+  @@map("students")
+}
