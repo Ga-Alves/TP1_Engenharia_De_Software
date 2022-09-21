@@ -58,7 +58,7 @@ Sistema de Avaliação de Matérias do Ensino Superior
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e senha.
+        ✍️ 01 - Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e senha.
     </summary>
 
 ### UX
@@ -81,7 +81,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de fazer login na plataforma utilizando meu email e senha.
+        ✍️ 02 - Eu como aluno gostaria de fazer login na plataforma utilizando meu email e senha.
     </summary>
 
 ### Front
@@ -98,7 +98,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis.
+        ✍️ 03 - Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis.
     </summary>
 
 ### Front
@@ -115,7 +115,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de visualizar uma lista de matérias disponíveis para avaliação.
+        ✍️ 04 - Eu como aluno gostaria de visualizar uma lista de matérias disponíveis para avaliação.
     </summary>
 
 ### Front
@@ -131,7 +131,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de pesquisar uma matéria por nome, professor ou código.
+        ✍️ 05 - Eu como aluno gostaria de pesquisar uma matéria por nome, professor ou código.
     </summary>
 
 ### Front
@@ -148,7 +148,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de visualizar detalhadamento avaliações de uma matéria.
+        ✍️ 06 - Eu como aluno gostaria de visualizar detalhadamento avaliações de uma matéria.
     </summary>
 
 ### Front
@@ -176,7 +176,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de avaliar uma  matéria e um professor que tive aula.
+        ✍️ 07 - Eu como aluno gostaria de avaliar uma  matéria e um professor que tive aula.
     </summary>
 
 ### Front
@@ -194,7 +194,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de visualizar as últimas avaliações que fiz.
+        ✍️ 08 - Eu como aluno gostaria de visualizar as últimas avaliações que fiz.
     </summary>
 
 ### Front
@@ -209,7 +209,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua dicencia.
+        ✍️ 09 - Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua dicencia.
     </summary>
 
 ### Front
@@ -222,7 +222,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ Eu como aluno quero ser capaz de deletar uma avaiação que fiz.
+        ✍️ 10 - Eu como aluno quero ser capaz de deletar uma avaiação que fiz.
     </summary>
     
 ### Front
