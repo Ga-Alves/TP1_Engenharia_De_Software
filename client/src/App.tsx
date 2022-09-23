@@ -1,10 +1,18 @@
-import {Button} from './Button'
+// pages
+import Dashboard
+  from "./pages/Dashboard/Dashboard"
+import Login from './pages/Login/Login'
 
 function App() {
 
   return (
-    <Button title="Chama bb"/>
+    <>
+      <Dashboard/>
+      <Login/>
+    </>
   )
 }
 
 export default App
+
+
