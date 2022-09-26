@@ -28,6 +28,9 @@ const theme = createTheme({
     secondary: {
       main: purple[500],
     },
+    text: {
+      primary: '#F2F2F2',
+    }
   },
 });
 
