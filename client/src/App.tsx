@@ -22,10 +22,11 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[500],
+      main: '#333333',
+      contrastText: '#F2F2F2',
     },
     secondary: {
-      main: green[500],
+      main: purple[500],
     },
   },
 });
