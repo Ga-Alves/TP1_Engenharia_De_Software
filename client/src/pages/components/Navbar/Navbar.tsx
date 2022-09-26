@@ -20,7 +20,7 @@ export default function Navbar() {
             <Toolbar>
                 <Grid container>
                     <Grid item  sx={style.navItems} xs={1}>
-                        <Typography>
+                        <Typography variant='h6'>
                             Logo
                         </Typography>
                     </Grid>
