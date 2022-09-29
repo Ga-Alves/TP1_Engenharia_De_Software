@@ -1,15 +1,14 @@
 import { Request, Response } from 'express';
+import { GetStudentService } from '../services/GetStudentService';
 // import { CreateStudentService } from '../services/CreateStudentService';
 
 export class GetStudentController {
     async handle(request: Request, response: Response) {
-        const { name, course, university, term, email, password } = request.body;
+        const { id } = request.params;
 
-        const getStudentService = new CreateStudentService();
+        const getStudentService = new GetStudentService();
 
-        const student = await createStudentService.execute({
-            name, course, university, term, email, password
-        });
+        const student = await getStudentService.execute({ id });
 
         return response.json(student);
     }
