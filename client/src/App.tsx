@@ -1,6 +1,9 @@
 // pages
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Login from './pages/Login/Login';
+import Login from './pages/Auth/Login/Login';
+import Signup from './pages/Auth/Signup/Signup';
+import PoppingsSemiBold from './assets/fonts/Poppins-SemiBold.ttf';
+
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -18,8 +21,15 @@ declare module '@mui/material/styles' {
 
 import { green, purple } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { fontFamily } from "@mui/joy/styles/styleFunctionSx";
 
 const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'PoppinsSemibold',
+      'sans-serif',
+    ].join(','),
+  },
   palette: {
     primary: {
       main: '#333333',
@@ -31,7 +41,7 @@ const theme = createTheme({
     text: {
       primary: '#F2F2F2',
     }
-  },
+  }
 });
 
 
@@ -41,7 +51,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Dashboard />
-      <Login />
+      <div>
+        <Signup />
+      </div>
     </ThemeProvider>
   )
 }
