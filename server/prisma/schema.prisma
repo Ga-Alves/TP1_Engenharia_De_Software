@@ -21,6 +21,8 @@ model Student {
   password   String
   created_at DateTime @default(now())
 
+  evaluationsGiven Evaluation[]
+
   @@map("students")
 }
 
@@ -30,5 +32,37 @@ model Subject {
   syllabus   String
   created_at DateTime @default(now())
 
+  evaluations Evaluation[]
+
   @@map("subjects")
+}
+
+model Professor {
+  id         String   @id @default(uuid())
+  name       String
+  university String
+  created_at DateTime @default(now())
+
+  evaluations_received Evaluation[]
+
+  @@map("professors")
+}
+
+model Evaluation {
+  id                String   @id @default(uuid())
+  rating            Int
+  difficulty        Int
+  recommended       Boolean
+  evaluation_method String
+  comment           String
+  created_at        DateTime @default(now())
+
+  student_rel   Student   @relation(fields: [student], references: [id])
+  student       String
+  professor_rel Professor @relation(fields: [professor], references: [id])
+  professor     String
+  subject_rel   Subject   @relation(fields: [subject], references: [id])
+  subject       String
+
+  @@map("evaluations")
 }
