@@ -1,11 +1,8 @@
 import { Box,
   FormControl,
   Grid,
-  InputLabel,
   Paper,
   MenuItem,
-  Select,
-  SelectChangeEvent,
   TextField,
   Typography,
   Button
