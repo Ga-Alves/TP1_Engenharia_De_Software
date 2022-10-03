@@ -6,7 +6,7 @@ import Form from './Form';
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function Signup() {
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: '100vh' }}>
