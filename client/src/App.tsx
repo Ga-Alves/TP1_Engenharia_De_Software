@@ -1,6 +1,7 @@
 // pages
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Login from './pages/Login/Login';
+import Navbar from "./pages/components/Navbar/Navbar";
+
+import {Outlet} from 'react-router-dom';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -16,7 +17,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-import { green, purple } from '@mui/material/colors';
+import { purple } from '@mui/material/colors';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -40,8 +41,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Dashboard />
-      <Login />
+      <Navbar/>
+      <Outlet/>
     </ThemeProvider>
   )
 }
