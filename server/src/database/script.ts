@@ -36,10 +36,6 @@ async function main() {
 
   }
 
-
-  const allSubjects = await prismaClient.subject.findMany();
-  console.log(allSubjects);
-
 }
 
 main()
