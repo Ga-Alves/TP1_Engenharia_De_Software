@@ -7,8 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Atualizar banco de dados:
 // npx prisma migrate dev
+// npx prisma generate
+// (abrir arquivo node_modules/.prisma/client/index.d.ts)
 
 model Student {
   id         String   @id @default(uuid())
@@ -21,4 +22,13 @@ model Student {
   created_at DateTime @default(now())
 
   @@map("students")
+}
+
+model Subject {
+  id         String   @id @default(uuid())
+  name       String
+  syllabus   String
+  created_at DateTime @default(now())
+
+  @@map("subjects")
 }
