@@ -28,11 +28,12 @@ model Student {
 
 model Subject {
   id         String   @id @default(uuid())
-  name       String
+  name       String   @unique
   syllabus   String
   created_at DateTime @default(now())
 
   evaluations Evaluation[]
+  professors  Professor[]
 
   @@map("subjects")
 }
@@ -43,6 +44,7 @@ model Professor {
   university String
   created_at DateTime @default(now())
 
+  subjects             Subject[]
   evaluations_received Evaluation[]
 
   @@map("professors")
