@@ -1,51 +1,43 @@
-import {Grid, Paper, Rating, Typography} from '@mui/material';
+import {Chip, Container, Grid, Paper, Rating, Typography} from '@mui/material';
+import Header from './Header';
+import ProfessorCard from '../components/ProfessorCard/ProfessorCard';
+import ReadMore from '../components/ReadMore/ReadMore';
+import { margin } from '@mui/system';
+import {theme} from '../../theme';
 export default function Subject() {
     const rating = 3.5;
+    const props = {
+        ementa: 'O curso de Introdução à Ciência de Dados (DCC212) do DCC-UFMG tem como principal objetivo trazer para os discentes um conhecimento estatístico através de um ponto de vista computacional. O curso é fortemente inspirado nas ofertas chamadas de Data8 e Data100 da universidade de Berkeley. Tais ementas (Data8 e Data100) foram adaptadas para a realidade de discentes da graduação da UFMG. Em particular, foi levado em conta que na nossa grade, os discentes já passaram por matérias como: Álgebra Linear Computacional e Probabilidade.' }
+
     return (
-        <Grid
-            display="flex"
-            justifyContent="center">
+    <Grid
+        sx={{
+            backgroundColor: theme.palette.background.default,
+            paddingY: '1rem'
+        }}
+    >
+        <Container
+        maxWidth='md'
 
-            <Grid  
-            container
-            component={Paper}
-            xs={8}
-            sx={{
-                marginTop: '5vh',
-                height: '100vh',
-            }}
-            padding={8}>
+       >
+            <Grid
+                direction="column"
+                component={Paper}
+                height='100vh'
+                marginTop={10}
+                padding={8}
+            >
+                <Header/>
                 <Grid
-                    container
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    height= "10vh"
-                >
-                    <Typography
-                    variant='h3'
-                    fontWeight={600}> Ciência de Dados </Typography>
-                    <Grid
-                        display="flex"
-                        direction="row"
-                        alignContent='center'
-                    >
-                        <Rating value={rating} name="size-large" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
-                        <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating} </Typography>
-                    </Grid>
-                </Grid>
-                <Grid>
-                    <Typography variant='h5'> Ementa </Typography>
-                    <Typography variant='body1'> A ideia do typescript é tipar variáveis para evitar erros em runtime ocasionados por quebra de contrato. Basicamente declaramos um tipo usando type e declaramos quais variáveis usam aquele tipo com nome:tipo; 
-                    </Typography>
-                </Grid>
-
-                <Grid>
-                    <Typography variant='h5'> Ementa </Typography>
-                    <Typography variant='body1'> A ideia do typescript é tipar variáveis para evitar erros em runtime ocasionados por quebra de contrato. Basicamente declaramos um tipo usando type e declaramos quais variáveis usam aquele tipo com nome:tipo; 
-                    </Typography>
-                </Grid>
+                sx={{
+                    marginY: '2rem'
+                }}>
+                <Typography variant='h5'> Ementa </Typography>
+                <ReadMore text={props.ementa} maxCharCount={200}/>
+                </Grid> 
+                <ProfessorCard/>
             </Grid>
-        </Grid>
+       </Container>
+    </Grid>
         );
 }

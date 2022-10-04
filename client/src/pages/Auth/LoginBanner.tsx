@@ -31,7 +31,13 @@ export default function() {
                     alt="welcome image."
                     src = {welcomeSvg}
                 />
-                <Typography variant='h4' > Sua opinião importa </Typography>
+                <Typography
+                    variant='h1'
+                    sx={{
+                        marginBottom: '2vh',
+                    }}
+
+                > Sua opinião importa </Typography>
                 <Typography variant='body1' > Cadastre ou faça login para avaliar e matérias anonimamente e de graça. </Typography>
             </Grid>
         </Grid>
