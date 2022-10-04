@@ -2,7 +2,7 @@ import {Chip, Container, Grid, Paper, Rating, Typography} from '@mui/material';
 import Header from './Header';
 import ProfessorCard from '../components/ProfessorCard/ProfessorCard';
 import ReadMore from '../components/ReadMore/ReadMore';
-import { margin } from '@mui/system';
+import Evaluations from '../components/Evaluations/Evaluations';
 import {theme} from '../../theme';
 export default function Subject() {
     const rating = 3.5;
@@ -23,7 +23,6 @@ export default function Subject() {
             <Grid
                 direction="column"
                 component={Paper}
-                height='100vh'
                 marginTop={10}
                 padding={8}
             >
@@ -35,7 +34,38 @@ export default function Subject() {
                 <Typography variant='h5'> Ementa </Typography>
                 <ReadMore text={props.ementa} maxCharCount={200}/>
                 </Grid> 
-                <ProfessorCard/>
+                <Grid
+                 container
+                 direction="column"
+                >
+                    <Typography variant='h5'> Professores </Typography>
+                    <Grid
+                        container
+                        direction="row"
+                        paddingY={1}
+                        sx={{
+                            gap: '1rem'
+                        }}
+
+                    >
+                        <ProfessorCard name='Pedro Machado' rating={3.419}/>
+                        <ProfessorCard name='Marco Tulio' rating={5}/>
+                    </Grid>
+                </Grid>
+
+                <Grid
+                 container
+                 direction="column"
+                 marginY={2}
+                >
+                    <Typography variant='h3'
+                    sx={{
+                        marginBottom: '1rem',
+                        marginTop: '2rem'
+                    }}> Avaliações </Typography>
+                    <Evaluations/>
+                </Grid>
+
             </Grid>
        </Container>
     </Grid>

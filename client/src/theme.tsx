@@ -7,13 +7,13 @@ export const theme = createTheme({
             main: '#8C00C7',
         },
         secondary: {
-            main: '#DB00FF',
+            main: '#2e2d2d',
         },
         background: {
             default: '#ebebeb',
         },
         text: {
-            primary: '#000000',
+            primary: '#1c1c1c',
             secondary: '#b0b0b0',
         },
         neutral: {
@@ -32,6 +32,14 @@ export const theme = createTheme({
         h2: {
             fontWeight: 600,
             fontSize: '2rem',
+        },
+        h3: {
+            fontWeight: 500,
+            fontSize: '1.5rem',
+        },
+        h4: {
+            fontWeight: 400,
+            fontSize: '1.2rem',
         },
         h5: {
             fontWeight: 500,

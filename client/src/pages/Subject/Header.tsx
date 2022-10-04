@@ -1,5 +1,4 @@
 import {Button, Chip, Container, Grid, Paper, Rating, Typography} from '@mui/material';
-import ReadMore from '../components/ReadMore/ReadMore';
 
 export default function Header(){
     
@@ -14,7 +13,7 @@ export default function Header(){
                 sx={{
                     padding: '0.5rem',
                 }}
-                color="secondary"
+                color="primary"
             />
             <Grid
                 container
