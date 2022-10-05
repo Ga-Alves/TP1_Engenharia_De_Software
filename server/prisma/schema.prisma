@@ -30,6 +30,8 @@ model Subject {
   id         String   @id @default(uuid())
   name       String   @unique
   syllabus   String
+  department String
+  workload   Int
   created_at DateTime @default(now())
 
   evaluations Evaluation[]
@@ -59,11 +61,11 @@ model Evaluation {
   comment           String
   created_at        DateTime @default(now())
 
-  student_rel   Student   @relation(fields: [student], references: [id])
+  student_rel   Student   @relation(fields: [student], references: [id], onDelete: Cascade)
   student       String
-  professor_rel Professor @relation(fields: [professor], references: [id])
+  professor_rel Professor @relation(fields: [professor], references: [id], onDelete: Cascade)
   professor     String
-  subject_rel   Subject   @relation(fields: [subject], references: [id])
+  subject_rel   Subject   @relation(fields: [subject], references: [id], onDelete: Cascade)
   subject       String
 
   @@map("evaluations")
