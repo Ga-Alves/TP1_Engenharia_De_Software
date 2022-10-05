@@ -1,4 +1,4 @@
-import { PrismaClient, Subject } from '@prisma/client';
+import { PrismaClient, Professor, Subject } from '@prisma/client';
 
 export const prismaClient = new PrismaClient();
 
@@ -36,9 +36,46 @@ async function main() {
 
   }
 
+  //? Valores dos professores
+  const { _count: { id: professorCount } } =
+    await prismaClient.professor.aggregate({
+      _count: { id: true }
+    });
 
-  const allSubjects = await prismaClient.subject.findMany();
-  console.log(allSubjects);
+  if (professorCount === 0) {
+    const defaultProfessorsSubjects: { professor: Pick<Professor, 'name' | 'university'>, subjectsNames: Subject['name'][] }[] = [
+      {
+        professor: { name: "Gabriel de Morais Coutinho", university: "Universidade Federal de Minas Gerais" },
+        subjectsNames: ["Pesquisa Operacional"]
+      },
+      {
+        professor: { name: "Renato Vimieiro", university: "Universidade Federal de Minas Gerais" },
+        subjectsNames: ["Algoritmos 2"]
+      },
+      {
+        professor: { name: "Haniel Barbosa", university: "Universidade Federal de Minas Gerais" },
+        subjectsNames: ["Linguagens de Programação"]
+      },
+      {
+        professor: { name: "Ronaldo Brasileiro Assunção", university: "Universidade Federal de Minas Gerais" },
+        subjectsNames: ["Equações Diferenciais C"]
+      },
+    ];
+
+    for (let { professor, subjectsNames } of defaultProfessorsSubjects) {
+      const backProf = await prismaClient.professor.create({ data: professor });
+      await prismaClient.professor.update({
+        where: { id: backProf.id },
+        data: {
+          subjects: {
+            connect: subjectsNames.map(sbj => ({ name: sbj }))
+          }
+        }
+      });
+    }
+
+
+  }
 
 }
 
