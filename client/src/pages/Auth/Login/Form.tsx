@@ -67,6 +67,7 @@ export default function() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                color="primary"
               >
                 Entrar
               </Button>
