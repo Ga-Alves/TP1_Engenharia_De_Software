@@ -1,4 +1,4 @@
-import {Card, Grid, Typography, SvgIcon} from '@mui/material'
+import {Card, Grid, Typography} from '@mui/material'
 import { SchoolOutlined, Star} from '@mui/icons-material';
 
 type Props = {

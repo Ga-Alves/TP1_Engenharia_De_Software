@@ -1,8 +1,13 @@
-import {Button, Box, Chip, Container, Grid, LinearProgress, linearProgressClasses, Paper, Rating, Slider, Typography} from '@mui/material';
+import {Box, Grid, LinearProgress, linearProgressClasses, Rating, Typography} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+type Props = {
+    rating: number;
+    difficulty: number;
+    recommend_rate: number;
+}
 
-export default function Evaluation(){
+export default function Evaluation({rating, difficulty, recommend_rate}:Props) {
 
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 7,
@@ -29,7 +34,7 @@ export default function Evaluation(){
                     direction='row'
                 >
                     <Rating value={3.5} name="size-large" size='large' precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
-                    <Typography variant='body1' sx={{marginLeft: '1vh'}}> {3.5}/5 </Typography>
+                    <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating}/5 </Typography>
                 </Grid>
             </Grid>
 
@@ -43,7 +48,7 @@ export default function Evaluation(){
                     <Box sx={{ width: '20%' }}>
                         <BorderLinearProgress variant="determinate" value={45} />
                     </Box>
-                    <Typography variant='body1' sx={{marginLeft: '1vh'}}> {4.5}/5 </Typography>
+                    <Typography variant='body1' sx={{marginLeft: '1vh'}}> {difficulty}/5 </Typography>
                 </Grid>
             </Grid>
 
@@ -52,7 +57,7 @@ export default function Evaluation(){
                 <Grid
                     container
                 >
-                    <Typography variant='h4' color="#383838"> 43% dos alunos recomendam a disciplina</Typography>
+                    <Typography variant='h4' color="#383838"> {recommend_rate*100}% dos alunos recomendam a disciplina</Typography>
                 </Grid>
             </Grid>
         </Grid>

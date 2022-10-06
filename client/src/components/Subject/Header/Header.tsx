@@ -1,6 +1,12 @@
-import {Button, Chip, Container, Grid, Paper, Rating, Typography} from '@mui/material';
+import {Button, Chip, Grid, Rating, Typography} from '@mui/material';
 
-export default function Header(){
+type Props = {
+    rating: number;
+    name: string;
+    code: string;
+}
+
+export default function Header({rating, name, code}:Props) {
     
     
     return (
@@ -8,7 +14,7 @@ export default function Header(){
             direction="column"
         >
             <Chip
-                label="DCC212"
+                label={code}
                 size='medium'
                 sx={{
                     padding: '0.5rem',
@@ -26,15 +32,15 @@ export default function Header(){
                         <Typography
                             variant='h2'
                             marginY={2}>
-                                Introdução à Ciência de Dados
+                                {name}
                         </Typography>
                     </Grid>
                     <Grid
                         container
                         xs={3}
                     >
-                        <Rating value={3.5} name="size-large" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
-                        <Typography variant='body1' sx={{marginLeft: '1vh'}}> {3.5} </Typography>
+                        <Rating value={rating} name="size-large" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
+                        <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating} </Typography>
                     </Grid>
                     <Grid
                         container

@@ -1,5 +1,5 @@
 // pages
-import Navbar from "./pages/components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import {theme} from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
 
