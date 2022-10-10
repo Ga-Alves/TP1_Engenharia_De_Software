@@ -16,7 +16,7 @@ export default function Navbar() {
         }
     }
     return(
-        <AppBar position="fixed">
+        <AppBar position="fixed" color="secondary">
             <Toolbar>
                 <Grid container>
                     <Grid item  sx={style.navItems} xs={1}>

@@ -38,7 +38,6 @@ async function main() {
       },
     ];
 
-
     for (let data of defaultSubjects)
       await prismaClient.subject.create({ data });
 
@@ -74,15 +73,10 @@ async function main() {
       const backProf = await prismaClient.professor.create({ data: professor });
       await prismaClient.professor.update({
         where: { id: backProf.id },
-        data: {
-          subjects: {
-            connect: subjectsNames.map(sbj => ({ name: sbj }))
-          }
-        }
+        data: { subjects: { connect: subjectsNames.map(sbj => ({ name: sbj })) } }
       });
     }
   }
-
 }
 
 main()
