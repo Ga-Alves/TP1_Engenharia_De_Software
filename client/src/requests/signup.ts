@@ -1,6 +1,6 @@
 import { api } from "../service/api";
 
-export interface signinBody {
+export interface signupBody {
     name: string;
     course: string;
     university: string;
@@ -9,6 +9,6 @@ export interface signinBody {
     password: string;
 }
 
-export default async function signin(body:signinBody){
-    return api.post('aluno/signin', body);
+export default async function signup(body:signupBody){
+    return api.post('aluno/signup', body);
 }

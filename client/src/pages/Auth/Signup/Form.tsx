@@ -8,23 +8,49 @@ import { Box,
   Button
 } from '@mui/material';
 
-import * as React from 'react';
+// interfaces
+import { signupBody } from '../../../requests/signup';
+
+// requests
+import signup from '../../../requests/signup';
+
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function() {
 
+  const navigate = useNavigate();
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      
+      const body:signupBody = {
+        email: String(data.get('email')),
+        name: String(data.get('name')),
+        term: String(data.get('term')),
+        password: String(data.get('password')),
+
+        course: 'Ciência da Computação',
+        university: 'UFMG',
+      }
+      signup(body)
+        .then((res) => navigate('../login'))
+        .catch((err) => console.log(err.response.data));
+  }
+
   const terms = [
-    {value: 1, label: '1º período'},
-    {value: 2, label: '2º período'},
-    {value: 3, label: '3º período'},
-    {value: 4, label: '4º período'},
-    {value: 5, label: '5º período'},
-    {value: 6, label: '6º período'},
-    {value: 7, label: '7º período'},
-    {value: 8, label: '8º período'},
-    {value: 9, label: '9º período'},
-    {value: 10, label: '10º período'},
+    {value: '1º período', label: '1º período'},
+    {value: '2º período', label: '2º período'},
+    {value: '3º período', label: '3º período'},
+    {value: '4º período', label: '4º período'},
+    {value: '5º período', label: '5º período'},
+    {value: '6º período', label: '6º período'},
+    {value: '7º período', label: '7º período'},
+    {value: '8º período', label: '8º período'},
+    {value: '9º período', label: '9º período'},
+    {value: '10º período', label: '10º período'},
   ];
 
   return (
@@ -62,6 +88,8 @@ export default function() {
       <FormControl
         fullWidth
         margin='dense'
+        component='form'
+        onSubmit={handleSubmit}
       >
         <TextField
           required
@@ -85,9 +113,9 @@ export default function() {
           select
           margin="normal"
           required
-          name="Período"
+          name="term"
           label="Período"
-          id="password"
+          id="term"
           autoComplete="current-password"
         >
           {terms.map((option) => (
