@@ -5,6 +5,7 @@ import { GetEvaluationsBySubjectIdController } from "./controllers/GetEvaluation
 import { GetStudentController } from "./controllers/GetStudentController";
 import { GetSubjectController } from "./controllers/GetSubjectController";
 import { LoginStudentController } from "./controllers/LoginStudentController";
+import { studentValidate } from "./middlewares/CreateEvaluationValidator";
 
 const router = Router();
 
@@ -24,7 +25,7 @@ router.get('/aluno/:id', getStudentController.handle);
 router.get('/materia', getSubjectController.handle);
 
 router.get('/avaliacoes/:id', getEvaluationsBySubjectIdController.handle);
-router.post('/avaliacoes', createEvaluationController.handle);
+router.post('/avaliacoes', studentValidate(), createEvaluationController.handle);
 
 export { router };
 
