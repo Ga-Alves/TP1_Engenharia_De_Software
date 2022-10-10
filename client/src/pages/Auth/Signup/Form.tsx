@@ -35,11 +35,9 @@ export default function() {
         course: 'Ciência da Computação',
         university: 'UFMG',
       }
-
       signup(body)
         .then((res) => navigate('../login'))
         .catch((err) => console.log(err.response.data));
-      console.log(body);
   }
 
   const terms = [
