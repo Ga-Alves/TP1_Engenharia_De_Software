@@ -1,6 +1,6 @@
 import { body } from 'express-validator';
 
-function createEvaluationValidator() {
+export function createEvaluationValidator() {
   body('rating').isInt({ min: 1, max: 5 });
   body('difficulty').isInt({ min: 1, max: 5 });
   body('recommended').isBoolean();
