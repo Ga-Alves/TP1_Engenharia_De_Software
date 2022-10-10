@@ -1,3 +1,4 @@
+import cors from 'cors'
 import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
@@ -7,6 +8,13 @@ import { router } from './routes';
 dotenv.config();
 
 const app = express();
+
+app.use(cors(
+  {
+    origin: process.env.APP_URL,
+    credentials: true,
+  },
+));
 
 app.use(express.json());
 

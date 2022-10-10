@@ -6,16 +6,26 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 
+// interfaces
+import { loginBody } from '../../../requests/login';
+
+// requests
+import login from '../../../requests/login';
+
 
 export default function() {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-        });
+
+        const body:loginBody = {
+          email: String(data.get('email')),
+          password: String(data.get('password')),
+        };
+        login(body)
+          .then((res) => console.log('Certo'))
+          .catch((err) => console.log('ERRO: ', err.response.data));
     };
 
     return (
