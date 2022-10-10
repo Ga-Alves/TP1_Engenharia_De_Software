@@ -7,15 +7,26 @@ import Typography from '@mui/material/Typography';
 // incons
 import StarIcon from '@mui/icons-material/Star';
 
-export default function CardComponent() { 
+export interface SubjectCard  {
+    subject: string;
+    subjectCode: string;
+    rating: string;
+    description: string;
+}
+
+interface CardProps {
+    data: SubjectCard;
+}
+
+export default function CardComponent(props:CardProps) { 
     return (
         <div className='CardComponent'>
             <Card sx={{ maxWidth: 345, padding: '10px' }}>
-                <Chip color='info' label="DCC009"/>
+                <Chip color='info' label={props.data.subjectCode}/>
                 <Grid container>
                     <Grid item xs={8}>
                         <Typography variant='h5' color='black'>
-                            Ciência de Dados
+                            {props.data.subject}
                         </Typography>
                         <Typography color='#BDBDBD'>
                             Dep. Ciência da Computação
@@ -25,12 +36,12 @@ export default function CardComponent() {
                     <Grid xs={4} color='black' display='flex' alignItems='center'>
                         <StarIcon htmlColor='#FFC700'/>
                         <Typography>
-                            4.2
+                            {props.data.rating}
                         </Typography>
                     </Grid>
                     <Grid xs={12}>
                         <Typography color='primary'>
-                        O curso de Introdução à Ciência de Dados (DCC212) do DCC-UFMG tem como principal objetivo trazer para os discentes um conhecimento estatístico através de um ponto de vista comput...
+                            {props.data.description}
                         </Typography>
                     </Grid>
                 </Grid>
