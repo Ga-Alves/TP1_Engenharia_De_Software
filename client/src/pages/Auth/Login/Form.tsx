@@ -6,6 +6,9 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 
+// router dom
+import { useNavigate } from 'react-router-dom';
+
 // interfaces
 import { loginBody } from '../../../requests/login';
 
@@ -14,6 +17,8 @@ import login from '../../../requests/login';
 
 
 export default function() {
+
+    const navigate = useNavigate();
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -24,7 +29,7 @@ export default function() {
           password: String(data.get('password')),
         };
         login(body)
-          .then((res) => console.log('Certo'))
+          .then((res) => navigate('../dashboard/list'))
           .catch((err) => console.log('ERRO: ', err.response.data));
     };
 
