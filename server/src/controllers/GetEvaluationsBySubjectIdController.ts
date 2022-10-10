@@ -8,7 +8,8 @@ class GetEvaluationsBySubjectIdController {
   async handle(request: Request, response: Response) {
     const { id } = request.params;
 
-    const getEvaluationsBySubjectIdService = new GetEvaluationsBySubjectIdService()
+    const getEvaluationsBySubjectIdService =
+      new GetEvaluationsBySubjectIdService()
 
     const evaluations = await getEvaluationsBySubjectIdService.execute({ id });
 
