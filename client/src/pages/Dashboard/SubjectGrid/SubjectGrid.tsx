@@ -22,6 +22,54 @@ export default function SubjectGrid() {
             rating: '5',
             description: 'lorem ipsum corem lorem',
         },
+        {
+            subject: 'Ciência de Dados',
+            subjectCode: 'DCC024',
+            rating: '1.5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Ciência de Dados',
+            subjectCode: 'DCC024',
+            rating: '1.5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
+        {
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'lorem ipsum corem lorem',
+        },
     ]
     return(
         <div className="SubjectGrid">
