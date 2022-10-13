@@ -17,7 +17,7 @@ const getSubjectByIdController = new GetSubjectByIdController();
 
 const getEvaluationsBySubjectIdController = new GetEvaluationsBySubjectIdController();
 
-router.post('/aluno/signin', createStudent.handle);
+router.post('/aluno/signup', createStudent.handle);
 router.post('/aluno/login', loginStudentController.handle);
 router.get('/aluno/:id', getStudentController.handle);
 
