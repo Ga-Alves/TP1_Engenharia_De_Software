@@ -12,6 +12,7 @@ export interface SubjectCard  {
     subjectCode: string;
     rating: string;
     description: string;
+    workload: string;
 }
 
 interface CardProps {
@@ -30,7 +31,7 @@ export default function CardComponent(props:CardProps) {
                         </Typography>
                         <Typography color='#BDBDBD'>
                             Dep. Ciência da Computação
-                            Optativa, 60hrs
+                            Optativa, {props.data.workload}hrs
                         </Typography>
                     </Grid>
                     <Grid item xs={4} color='black' display='flex' alignItems='center'>
