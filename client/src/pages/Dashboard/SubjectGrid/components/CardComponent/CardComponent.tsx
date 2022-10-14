@@ -33,13 +33,13 @@ export default function CardComponent(props:CardProps) {
                             Optativa, 60hrs
                         </Typography>
                     </Grid>
-                    <Grid xs={4} color='black' display='flex' alignItems='center'>
+                    <Grid item xs={4} color='black' display='flex' alignItems='center'>
                         <StarIcon htmlColor='#FFC700'/>
                         <Typography>
                             {props.data.rating}
                         </Typography>
                     </Grid>
-                    <Grid xs={12}>
+                    <Grid item xs={12}>
                         <Typography color='primary'>
                             {props.data.description}
                         </Typography>

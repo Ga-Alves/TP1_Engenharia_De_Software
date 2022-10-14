@@ -12,8 +12,7 @@ import Card
 import { TextField } from '@mui/material'
 // interfaces
 import { SubjectCard } from './components/CardComponent/CardComponent'
-import { FitbitRounded } from '@mui/icons-material'
-import { padding } from '@mui/system'
+
 
 export default function SubjectGrid() {
     const [filter, setFilter] = useState<string>('')
@@ -98,7 +97,7 @@ export default function SubjectGrid() {
                 onChange={(e) => setFilter(e.target.value)}
             />
             <div className="SubjectGrid">
-                {filterList(subjects).map(item => <Card data={item}/>)}
+                {filterList(subjects).map((item, i) => <Card data={item} key={i}/>)}
             </div>
         </>
     )
