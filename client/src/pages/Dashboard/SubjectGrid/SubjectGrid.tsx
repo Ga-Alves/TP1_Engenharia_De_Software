@@ -29,8 +29,14 @@ export default function SubjectGrid() {
     
     const subjects: Array<SubjectCard> = [
         {
-            subject: 'Ciência de Dados',
-            subjectCode: 'DCC024',
+            subject: 'Eng. de Software',
+            subjectCode: 'DCC025',
+            rating: '5',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        },
+        {
+            subject: 'Introdução a Banco de Dados',
+            subjectCode: 'DCC013',
             rating: '1.5',
             description: 'lorem ipsum corem lorem',
         },
@@ -56,12 +62,6 @@ export default function SubjectGrid() {
             subject: 'Ciência de Dados',
             subjectCode: 'DCC024',
             rating: '1.5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
             description: 'lorem ipsum corem lorem',
         },
         {
