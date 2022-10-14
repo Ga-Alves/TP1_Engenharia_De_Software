@@ -1,6 +1,5 @@
 .SubjectGrid{
-    padding-top: 100px;
-
+    padding-top: 10px;
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 50px;
