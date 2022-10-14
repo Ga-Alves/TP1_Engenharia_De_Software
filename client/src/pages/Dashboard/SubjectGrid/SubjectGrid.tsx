@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 //style
 import './SubjectGrid.css'
@@ -13,6 +13,19 @@ import { TextField } from '@mui/material'
 // interfaces
 import { SubjectCard } from './components/CardComponent/CardComponent'
 
+// requests
+import listSubjects
+  from '../../../requests/Subjects/listSubjects'
+
+interface subject {
+    id: string;
+    name: string;
+    syllabus: string;
+    departament: string;
+    workload: number;
+    created_at: string;
+}
+
 
 export default function SubjectGrid() {
     const [filter, setFilter] = useState<string>('')
@@ -25,6 +38,15 @@ export default function SubjectGrid() {
         })
         return filtro
     }
+
+    useEffect(() =>{
+        listSubjects()
+            .then((res) => {
+                const t:subject = res.data[0]
+                console.log(t);
+            }
+            )
+    }, [])
     
     const subjects: Array<SubjectCard> = [
         {
