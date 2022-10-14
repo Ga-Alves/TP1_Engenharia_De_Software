@@ -21,13 +21,14 @@ interface subject {
     id: string;
     name: string;
     syllabus: string;
-    departament: string;
+    department: string;
     workload: number;
     created_at: string;
 }
 
 
 export default function SubjectGrid() {
+    const [subjects, setSubjects] = useState<Array<SubjectCard>>([])
     const [filter, setFilter] = useState<string>('')
 
     function filterList(list:Array<SubjectCard>) {
@@ -42,74 +43,21 @@ export default function SubjectGrid() {
     useEffect(() =>{
         listSubjects()
             .then((res) => {
-                const t:subject = res.data[0]
-                console.log(t);
+                const list = res.data.map((item:subject) => {
+                    const card:SubjectCard ={
+                        subject: item.name,
+                        subjectCode: item.department + ' ' + item.workload,
+                        description: item.syllabus,
+                        rating: 'static!!'
+                    }
+                    return card;
+                })
+                setSubjects(list);
             }
             )
     }, [])
     
-    const subjects: Array<SubjectCard> = [
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        },
-        {
-            subject: 'Introdução a Banco de Dados',
-            subjectCode: 'DCC013',
-            rating: '1.5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Ciência de Dados',
-            subjectCode: 'DCC024',
-            rating: '1.5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Ciência de Dados',
-            subjectCode: 'DCC024',
-            rating: '1.5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-        {
-            subject: 'Eng. de Software',
-            subjectCode: 'DCC025',
-            rating: '5',
-            description: 'lorem ipsum corem lorem',
-        },
-    ]
+   
     return(
         <>
             <TextField 
