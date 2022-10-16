@@ -8,25 +8,25 @@ import {theme} from '../../theme';
 
 type Props = {
     subject: {
-        name: string;
-        syllabus: string;
-        code: string;
-        rating: number;
-        difficulty: number;
-        recommend_rate: number;},
+        name?: string;
+        syllabus?: string;
+        code?: string;
+        rating?: number;
+        difficulty?: number;
+        recommend_rate?: number;},
 
     professors:
         {
-            name: string;
-            rating: number;
+            name?: string;
+            rating?: number;
         }[],
     evaluations: 
         {
-            rating: number;
-            difficulty: number;
-            evaluation_method: string;
-            recommend: boolean;
-            comment: string;
+            rating?: number;
+            difficulty?: number;
+            evaluation_method?: string;
+            recommend?: boolean;
+            comment?: string;
         }[]
 }
 
