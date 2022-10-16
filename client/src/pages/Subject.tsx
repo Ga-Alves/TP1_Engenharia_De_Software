@@ -1,50 +1,83 @@
 import Subject from "../components/Subject/Subject";
+import {useState, useEffect} from "react";
+import {useParams} from "react-router-dom";
+import getSubject from "../requests/subject";
+import getEvaluations from "../requests/evaluations"
+
+interface Subject{
+    id: string;
+    name: string;
+    syllabus: string;
+    department: string;
+    workload: number;
+    createdAt: string;
+}
+
+interface Evaluation{
+    id: string;
+    rating: number;
+    difficulty: number;
+    recommended: boolean;
+    evaluation_method: string;
+    comment: string;
+    createdAt: string;
+    subject: string;
+    professor: string;
+    student: string;
+}
 
 
 export default function SubjectPage() {
 
-    const Props = {
-        subject: {
-            name: "Programação Orientada a Objetos",
-            syllabus: `A POO é um paradigma de programação que se propõe a abordar o design de um sistema em termos de entidades, os objetos, e relacionamentos entre essas entidades. 
-            
-            Imagine que estamos desenhando um sistema de gerenciamento de funcionários para uma empresa: o funcionário, sob esta abordagem, será uma entidade, e ele deve pertencer a um departamento. 
-            
-            O departamento também será uma entidade, um objeto. Um departamento pode ter um ou mais funcionários. Logo, estabelecemos um relacionamento entre funcionário e departamento.`,
-            code: 'DCC213',
-            rating: 3.5,
-            difficulty: 4.7,
-            recommend_rate: 0.8},
+    const {id} = useParams();
+    const [subject, setSubject] = useState<Subject>();
+    const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
 
-        professors: [
-            {
-                name: "João da Silva",
-                rating: 4.5
-            }
-        ],
+    useEffect(() => {
+        getSubject(id)
+            .then((response) => response.data )
+            .then((data) => setSubject(data));
+        
+        getEvaluations(id)
+            .then((response) => response.data)
+            .then((data) => setEvaluations(data));
+    }, [id]);
 
-        evaluations: [
-            {
-                rating: 4,
-                difficulty: 4.7,
-                evaluation_method: "Prova e Trabalho",
-                recommend: true,
-                comment: "Muito bom, recomendo!"
+    function buildSubjectProps() {
+        return {
+            subject: {
+                name: subject? subject.name : "",
+                syllabus: subject? subject.syllabus : "",
+                code: subject? subject.name : "",
+                rating: 3.5,
+                difficulty: 3.5,
+                recommend_rate: 3.5,
             },
-            {
-                rating: 2,
-                difficulty: 5,
-                evaluation_method: `20 pontos em 2 TPs (10 cada)
-                75 pontos de prova (25 cada)
-                10 pontos de exercício`,
-                recommend: false,
-                comment:   `Fiquei com pregs das aulas dele que é tipo POO for dummies (mas acho que isso é da ementa e não do profs). Mas ele ensina com calma, dá uns exemplos legais, bem organizado, os tps são bem modelados tbm. Recomendo.`
-            }
-        ]
+            professors: [
+                {
+                    name: "João da Silva",
+                    rating: 4.5
+                }
+            ],
+    
+            evaluations: evaluations.map((evaluation) => {
+                const data = {
+                    rating: evaluation? evaluation.rating : 0,
+                    difficulty: evaluation? evaluation.difficulty : 0,
+                    recommend: evaluation? evaluation.recommended : false,
+                    evaluation_method: evaluation? evaluation.evaluation_method : "",
+                    comment: evaluation? evaluation.comment : ""
+                }
+                console.log(data);
+                return data
+            })
+        }
     }
 
     return (
-        <Subject {...Props}/>
+        <Subject
+        
+        {...buildSubjectProps()}/>
     )
 
 }
