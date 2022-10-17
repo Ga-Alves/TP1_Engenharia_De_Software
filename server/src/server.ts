@@ -1,4 +1,4 @@
-import cors from 'cors'
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
@@ -15,6 +15,7 @@ app.use(cors(
     credentials: true,
   },
 ));
+
 
 app.use(express.json());
 
