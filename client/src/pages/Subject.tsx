@@ -1,7 +1,17 @@
 import Subject from "../components/Subject/Subject";
 
+// request
+import subject
+  from "../requests/subject";
+
+//  
+import { useParams } from "react-router-dom";
 
 export default function SubjectPage() {
+    const {id} = useParams()
+    subject(id)
+        .then((res) => console.log(res.data))
+        .catch((err) => console.log(err.response))
 
     const Props = {
         subject: {

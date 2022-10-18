@@ -8,7 +8,10 @@ import Typography from '@mui/material/Typography';
 // incons
 import StarIcon from '@mui/icons-material/Star';
 
+import { useNavigate } from 'react-router-dom';
+
 export interface SubjectCard  {
+    id: string;
     subject: string;
     subjectCode: string;
     rating: string;
@@ -21,10 +24,12 @@ interface CardProps {
 }
 
 export default function CardComponent(props:CardProps) { 
+
+    const navigate = useNavigate()
     return (
         <div className='CardComponent'>
             <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea sx={{padding: '10px'}} onClick={() => alert('click')}> 
+                <CardActionArea sx={{padding: '10px'}} onClick={() => navigate('../../subject/' + props.data.id)}> 
                     <Chip color='info' label={props.data.subjectCode}/>
                     <Grid container>
                         <Grid item xs={8}>
