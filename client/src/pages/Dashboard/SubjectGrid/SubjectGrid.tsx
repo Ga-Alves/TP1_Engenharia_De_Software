@@ -48,7 +48,7 @@ export default function SubjectGrid() {
                         subject: item.name,
                         subjectCode: item.department + ' ' + 'static!',
                         description: item.syllabus,
-                        workload: item.workload,
+                        workload: String(item.workload),
                         rating: 'static!!'
                     }
                     return card;
