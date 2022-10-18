@@ -1,4 +1,5 @@
 // MUI
+import CardActionArea from '@mui/material/CardActionArea';
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
 import Grid from '@mui/material/Grid';
@@ -22,30 +23,32 @@ interface CardProps {
 export default function CardComponent(props:CardProps) { 
     return (
         <div className='CardComponent'>
-            <Card sx={{ maxWidth: 345, padding: '10px' }}>
-                <Chip color='info' label={props.data.subjectCode}/>
-                <Grid container>
-                    <Grid item xs={8}>
-                        <Typography variant='h5' color='black'>
-                            {props.data.subject}
-                        </Typography>
-                        <Typography color='#BDBDBD'>
-                            Dep. Ciência da Computação
-                            Optativa, {props.data.workload}hrs
-                        </Typography>
+            <Card sx={{ maxWidth: 345 }}>
+                <CardActionArea sx={{padding: '10px'}} onClick={() => alert('click')}> 
+                    <Chip color='info' label={props.data.subjectCode}/>
+                    <Grid container>
+                        <Grid item xs={8}>
+                            <Typography variant='h5' color='black'>
+                                {props.data.subject}
+                            </Typography>
+                            <Typography color='#BDBDBD'>
+                                Dep. Ciência da Computação
+                                Optativa, {props.data.workload}hrs
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={4} color='black' display='flex' alignItems='center'>
+                            <StarIcon htmlColor='#FFC700'/>
+                            <Typography>
+                                {props.data.rating}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Typography color='primary'>
+                                {props.data.description}
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={4} color='black' display='flex' alignItems='center'>
-                        <StarIcon htmlColor='#FFC700'/>
-                        <Typography>
-                            {props.data.rating}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography color='primary'>
-                            {props.data.description}
-                        </Typography>
-                    </Grid>
-                </Grid>
+                </CardActionArea>
             </Card>
 
         </div>
