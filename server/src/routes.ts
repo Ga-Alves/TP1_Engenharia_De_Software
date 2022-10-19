@@ -2,6 +2,7 @@ import { Router } from "express";
 import { CreateEvaluationController } from "./controllers/CreateEvaluationController";
 import { CreateStudentController } from "./controllers/CreateStudentController";
 import { GetEvaluationsBySubjectIdController } from "./controllers/GetEvaluationsBySubjectIdController";
+import { GetProfessorListBySubjectIdController } from "./controllers/GetProfessorListBySubjectIdController";
 import { GetProfessorListController } from "./controllers/GetProfessorListController";
 import { GetStudentController } from "./controllers/GetStudentController";
 import { GetSubjectByIdController } from "./controllers/GetSubjectByIdController";
@@ -22,6 +23,7 @@ const getEvaluationsBySubjectIdController = new GetEvaluationsBySubjectIdControl
 const createEvaluationController = new CreateEvaluationController();
 
 const getProfessorListController = new GetProfessorListController();
+const getProfessorListBySubjectIdController = new GetProfessorListBySubjectIdController();
 
 router.post('/aluno/signup', createStudent.handle);
 router.post('/aluno/login', loginStudentController.handle);
@@ -34,6 +36,7 @@ router.get('/avaliacoes/:id', getEvaluationsBySubjectIdController.handle);
 router.post('/avaliacoes', studentValidate(), createEvaluationController.handle);
 
 router.get('/professores', getProfessorListController.handle);
+router.get('/professores/materia/:id', getProfessorListBySubjectIdController.handle);
 
 
 export { router };
