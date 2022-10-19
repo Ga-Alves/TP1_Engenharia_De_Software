@@ -1,5 +1,15 @@
 import { api } from "../service/api";
+import { Evaluation } from "../types/evaluation";
 
-export default async function avaliacoes(id:string|undefined){
-    return api.get(`avaliacoes/${id}`);
+export async function avaliacoes(id:string):Promise<Evaluation[]>{
+    const res = await api.get(`avaliacoes/${id}`);
+
+    return res.data.map((item:any) => ({
+        id: item.id,
+        rating: 4,
+        dificulty: item.dificulty,
+        recommend: item.recommend,
+        evaluation_method: item.evaluation_method,
+        comment: item.comment,
+    }));
 }

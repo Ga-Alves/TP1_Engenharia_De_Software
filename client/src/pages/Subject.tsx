@@ -4,8 +4,9 @@ import {SubjectProfile} from "../components/Subject/SubjectProfile";
 
 // request
 import { getSubject }  from "../requests/subject";
+import { subjectProfessors } from '../requests/Subjects/subjectProfessors';
 
-//  
+// router dom
 import { useParams } from "react-router-dom";
 
 import { Subject } from '../types/subject';
@@ -13,7 +14,8 @@ import { Professor } from '../types/professor';
 import { Evaluation } from '../types/evaluation';
 
 // MUI
-import { CircularProgress } from '@mui/material';
+import { LoadingPage } from './LoadingPage/LoadingPage';
+import { avaliacoes } from '../requests/evaluations';
 
 export default function SubjectPage() {
     const {id} = useParams()
@@ -27,7 +29,13 @@ export default function SubjectPage() {
             try {
                 if(!id)
                     throw new Error("Subject id not found");
-                const subject = await getSubject(id);
+                const subject = await getSubject(id)
+                setSubject(subject)
+                const professors = await subjectProfessors(id)
+                setProfessors(professors)
+                const evaluation = await avaliacoes(id)
+                setEvaluations(evaluations)
+                
 
             } catch(err:any) {
                 console.error(err);
@@ -38,7 +46,7 @@ export default function SubjectPage() {
     }, [])
     
     if(!(subject&&professors&&evaluations)) {
-        return <CircularProgress />
+        return <LoadingPage/>
     }
     return (
         <SubjectProfile subject={subject} professors={professors} evaluations={evaluations}/>

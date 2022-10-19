@@ -1,8 +1,9 @@
 export interface Evaluation
 {
+    id: string;
     rating: number;
     difficulty: number;
-    evaluation_method: string;
     recommend: boolean;
+    evaluation_method: string;
     comment: string;
 }
