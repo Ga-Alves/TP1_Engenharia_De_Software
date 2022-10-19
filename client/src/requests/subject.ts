@@ -10,7 +10,7 @@ export async function getSubject(id:string):Promise<Subject>{
         syllabus: res.data.syllabus,
         //TODO BACK: Calcular e retornar estes dados 
         code: "DCC 133",
-        rating: 5,
+        rating: 3,
         difficulty: 4,
         recommend_rate: 4,
     }
