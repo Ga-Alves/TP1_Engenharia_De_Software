@@ -6,8 +6,9 @@ import Evaluations from './Evaluations/Evaluations';
 import StudentComment from './StudentComment/StudentComment';
 import {theme} from '../../theme';
 
-type Props = {
+export type Props = {
     subject: {
+        id?: string;
         name?: string;
         syllabus?: string;
         code?: string;
@@ -53,7 +54,7 @@ export default function Subject({subject, professors, evaluations}:Props) {
             >
                 <Header
                     rating={subject.rating}
-                    name={subject.name}
+                    name={subject ? subject.name : ''}
                     code={subject.code}
         
                 />
