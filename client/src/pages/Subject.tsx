@@ -31,9 +31,9 @@ export default function SubjectPage() {
                     throw new Error("Subject id not found");
                 const subject = await getSubject(id)
                 setSubject(subject)
-                const professors = await subjectProfessors(id)
+                const professors = await subjectProfessors(id)  
                 setProfessors(professors)
-                const evaluation = await avaliacoes(id)
+                const evaluations = await avaliacoes(id)
                 setEvaluations(evaluations)
                 
 
