@@ -46,7 +46,7 @@ export default function Evaluation({rating, difficulty, recommend_rate}:Props) {
                     direction='row'
                 >
                     <Box sx={{ width: '20%' }}>
-                        <BorderLinearProgress variant="determinate" value={45} />
+                        <BorderLinearProgress variant="determinate" value={difficulty*20} />
                     </Box>
                     <Typography variant='body1' sx={{marginLeft: '1vh'}}> {difficulty}/5 </Typography>
                 </Grid>
