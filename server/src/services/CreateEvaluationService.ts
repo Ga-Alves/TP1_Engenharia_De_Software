@@ -14,6 +14,19 @@ class CreateEvaluationService {
       }
     });
 
+    await prismaClient.subject.update({
+      where: { id: subject },
+      data: {
+        difficulty_sum: { increment: difficulty },
+        difficulty_cnt: { increment: 1 },
+        rating_sum: { increment: rating },
+        rating_cnt: { increment: 1 },
+        recommend_sum: { increment: (recommended ? 1 : 0) },
+        recommend_cnt: { increment: 1 },
+      }
+    });
+
+
     return evaluation;
   }
 }
