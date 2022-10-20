@@ -23,7 +23,9 @@ router.get('/materia', subjectController.handleGetSubjects);
 router.get('/materia/:id', subjectController.handleGetSubjectById);
 
 router.get('/avaliacoes/:id', evaluationController.handleGetEvaluationBySubjectId);
-router.post('/avaliacoes', studentValidate(), evaluationController.handleCreateEvaluation);
+router.post('/avaliacoes',
+  studentValidate(),
+  evaluationController.handleCreateEvaluation);
 
 router.get('/professores', professorController.handleGetProfessors);
 router.get('/professores/materia/:id', professorController.handleGetProfessorsBySubjectId);

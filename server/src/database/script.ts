@@ -1,4 +1,4 @@
-import { Evaluation, PrismaClient, Professor, Subject } from '@prisma/client';
+import { Evaluation, PrismaClient, Professor, Student, Subject } from '@prisma/client';
 
 export const prismaClient = new PrismaClient();
 
@@ -97,11 +97,32 @@ async function main() {
     }
   }
 
+  //? Aluno padrao
+  const { _count: { id: studentCount } } =
+    await prismaClient.student.aggregate({
+      _count: { id: true }
+    });
+
+  if (studentCount === 0) {
+    const defaultStudent: Omit<Student, "created_at" | "id"> = {
+      name: "Ziraldo",
+      course: "Matematica Discreta",
+      university: "UFMG",
+      term: "4",
+      email: "ziraldo@gmail.com",
+      password: "senha"
+    }
+    await prismaClient.student.create({ data: defaultStudent });
+  }
+
+
+
   //? Avalicoes Padrao
   const { _count: { id: evaluationCount } } =
     await prismaClient.evaluation.aggregate({
       _count: { id: true }
     });
+
 
   if (evaluationCount === 0) {
     console.log("Generating default evaluations");
@@ -168,8 +189,11 @@ async function main() {
     const anyStudent = await prismaClient.student.findFirst();
     const anyProfessor = await prismaClient.professor.findFirst();
 
+    console.log(`id:${anySubject?.id}`)
+
     if (anySubject && anyStudent && anyProfessor)
       for (let data of defaultEvaluations) {
+        console.log(`New eval ${data.difficulty} ${data.rating} ${data.recommended}`)
 
         await prismaClient.evaluation.create({
           data: {
@@ -193,6 +217,7 @@ async function main() {
           }
         })
       }
+
   }
 
 }
