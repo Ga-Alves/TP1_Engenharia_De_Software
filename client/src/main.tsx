@@ -14,6 +14,7 @@ import Signup from './pages/Auth/Signup/Signup';
 import List
  from './pages/Dashboard/SubjectGrid/SubjectGrid';
 import Subject from './pages/Subject';
+import EvaluateSteps from './pages/EvalueteSteps/EvaluateSteps';
 
 import {BrowserRouter, Routes, Route}from 'react-router-dom';
 
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route path='login' element={<Login />}/>
             <Route path='signup' element={<Signup/>}/>
             <Route path='subject/:id' element={<Subject/>}/>
+            <Route path='evaluate/:id' element={<EvaluateSteps/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
