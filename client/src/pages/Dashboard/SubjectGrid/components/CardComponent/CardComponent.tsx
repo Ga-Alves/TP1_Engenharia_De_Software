@@ -1,3 +1,5 @@
+import './CardComponent.css'
+
 // MUI
 import CardActionArea from '@mui/material/CardActionArea';
 import Card from '@mui/material/Card';
@@ -28,15 +30,16 @@ export default function CardComponent(props:CardProps) {
     const navigate = useNavigate()
     return (
         <div className='CardComponent'>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 400 }}>
                 <CardActionArea sx={{padding: '10px'}} onClick={() => navigate('../../subject/' + props.data.id)}> 
                     <Chip color='info' label={props.data.subjectCode}/>
-                    <Grid container>
+
+                    <Grid container marginTop={1}>
                         <Grid item xs={8}>
-                            <Typography variant='h5' color='black'>
+                            <Typography marginBottom={1} variant='h5' color='black'>
                                 {props.data.subject}
                             </Typography>
-                            <Typography color='#BDBDBD'>
+                            <Typography color='#BDBDBD' marginBottom={1}>
                                 Dep. Ciência da Computação
                                 Optativa, {props.data.workload}hrs
                             </Typography>

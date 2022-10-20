@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Box,
   FormControl,
   Grid,
@@ -37,7 +38,16 @@ export default function() {
       }
       signup(body)
         .then((res) => navigate('../login'))
-        .catch((err) => console.log(err.response.data));
+        .catch((err) => {
+          console.log(err.response);
+          
+          Swal.fire({
+            title: 'Falha ao realizar o Cadastro.',
+            text: 'Verifique se o e-mail já foi cadastrado',
+            icon: 'error',
+            confirmButtonText: 'Ok!'
+          })
+        });
   }
 
   const terms = [
