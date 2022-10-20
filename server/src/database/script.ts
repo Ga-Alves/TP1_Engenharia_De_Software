@@ -33,7 +33,7 @@ async function main() {
       {
         name: "Equações Diferenciais C",
         syllabus: "Equações Diferenciais Ordinárias de 1a e 2a Ordens - Soluções de Equações Diferenciais em Séries de Potências - Sistemas de Equações Diferenciais Lineares - Transformada de Laplace - Séries de Fourier - Equações Diferenciais Parciais",
-        department: "DCC",
+        department: "MAT",
         workload: 60
       },
     ];

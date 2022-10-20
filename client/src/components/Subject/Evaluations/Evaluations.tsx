@@ -33,7 +33,7 @@ export default function Evaluation({rating, difficulty, recommend_rate}:Props) {
                     alignItems='center'
                     direction='row'
                 >
-                    <Rating value={3.5} name="size-large" size='large' precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
+                    <Rating value={rating} name="size-large" size='large' precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
                     <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating}/5 </Typography>
                 </Grid>
             </Grid>
@@ -46,7 +46,7 @@ export default function Evaluation({rating, difficulty, recommend_rate}:Props) {
                     direction='row'
                 >
                     <Box sx={{ width: '20%' }}>
-                        <BorderLinearProgress variant="determinate" value={45} />
+                        <BorderLinearProgress variant="determinate" value={difficulty*20} />
                     </Box>
                     <Typography variant='body1' sx={{marginLeft: '1vh'}}> {difficulty}/5 </Typography>
                 </Grid>

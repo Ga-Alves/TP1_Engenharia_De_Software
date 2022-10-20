@@ -45,6 +45,7 @@ export default function SubjectGrid() {
             .then((res) => {
                 const list = res.data.map((item:subject) => {
                     const card:SubjectCard ={
+                        id: item.id,
                         subject: item.name,
                         subjectCode: item.department + ' ' + 'static!',
                         description: item.syllabus,

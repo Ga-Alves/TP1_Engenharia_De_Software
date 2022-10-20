@@ -1,83 +1,55 @@
-import Subject from "../components/Subject/Subject";
-import {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
-import getSubject from "../requests/subject";
-import getEvaluations from "../requests/evaluations"
+import {useState, useEffect} from 'react'
 
-interface Subject{
-    id: string;
-    name: string;
-    syllabus: string;
-    department: string;
-    workload: number;
-    createdAt: string;
-}
+import {SubjectProfile} from "../components/Subject/SubjectProfile";
 
-interface Evaluation{
-    id: string;
-    rating: number;
-    difficulty: number;
-    recommended: boolean;
-    evaluation_method: string;
-    comment: string;
-    createdAt: string;
-    subject: string;
-    professor: string;
-    student: string;
-}
+// request
+import { getSubject }  from "../requests/subject";
+import { subjectProfessors } from '../requests/Subjects/subjectProfessors';
 
+// router dom
+import { useParams } from "react-router-dom";
+
+import { Subject } from '../types/subject';
+import { Professor } from '../types/professor';
+import { Evaluation } from '../types/evaluation';
+
+// MUI
+import { LoadingPage } from './LoadingPage/LoadingPage';
+import { avaliacoes } from '../requests/evaluations';
 
 export default function SubjectPage() {
-
-    const {id} = useParams();
-    const [subject, setSubject] = useState<Subject>();
-    const [evaluations, setEvaluations] = useState<Evaluation[]>([]);
+    const {id} = useParams()
+        
+    const [subject, setSubject] = useState<Subject>()
+    const [professors, setProfessors] = useState<Professor[]>()
+    const [evaluations, setEvaluations] = useState<Evaluation[]>()
 
     useEffect(() => {
-        getSubject(id)
-            .then((response) => response.data )
-            .then((data) => setSubject(data));
-        
-        getEvaluations(id)
-            .then((response) => response.data)
-            .then((data) => setEvaluations(data));
-    }, [id]);
+        const fetch = async () => {
+            try {
+                if(!id)
+                    throw new Error("Subject id not found");
+                const subject = await getSubject(id)
+                setSubject(subject)
+                const professors = await subjectProfessors(id)  
+                setProfessors(professors)
+                const evaluations = await avaliacoes(id)
+                setEvaluations(evaluations)
+                
 
-    function buildSubjectProps() {
-        return {
-            subject: {
-                name: subject? subject.name : "",
-                syllabus: subject? subject.syllabus : "",
-                code: subject? subject.name : "",
-                rating: 3.5,
-                difficulty: 3.5,
-                recommend_rate: 3.5,
-            },
-            professors: [
-                {
-                    name: "João da Silva",
-                    rating: 4.5
-                }
-            ],
-    
-            evaluations: evaluations.map((evaluation) => {
-                const data = {
-                    rating: evaluation? evaluation.rating : 0,
-                    difficulty: evaluation? evaluation.difficulty : 0,
-                    recommend: evaluation? evaluation.recommended : false,
-                    evaluation_method: evaluation? evaluation.evaluation_method : "",
-                    comment: evaluation? evaluation.comment : ""
-                }
-                console.log(data);
-                return data
-            })
+            } catch(err:any) {
+                console.error(err);
+            }
         }
+        fetch();
+            
+    }, [])
+    
+    if(!(subject&&professors&&evaluations)) {
+        return <LoadingPage/>
     }
-
     return (
-        <Subject
-        
-        {...buildSubjectProps()}/>
+        <SubjectProfile subject={subject} professors={professors} evaluations={evaluations}/>
     )
 
 }
