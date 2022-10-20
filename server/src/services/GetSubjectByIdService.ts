@@ -12,7 +12,6 @@ class GetSubjectByIdService {
     if (!subject)
       throw new Error("A matéria com esse ID não existe!");
 
-
     return subject;
   }
 }
