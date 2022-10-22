@@ -11,7 +11,6 @@ type infos = {
 
 type Props = {
     subject_name: string;
-    id: string;
     professors: {
         name: string;
         id: string;

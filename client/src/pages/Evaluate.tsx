@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import EvaluatePage from "../components/Evaluate/Evaluate"
 import { getSubject } from "../requests/subject";
+import { evaluate, iEvaluate } from "../requests/Subjects/evaluate";
 import { subjectProfessors } from "../requests/Subjects/subjectProfessors";
-import { Professor } from "../types/professor";
+
 
 export interface iProfessor {
     name: string;
@@ -39,23 +40,26 @@ export default function Evaluate(){
         event.preventDefault();
         const data = new FormData(event.currentTarget);
     
-        const body = {
-          subject: String(id),
-          professor: String(data.get('professor')),
-          rating: Number(data.get('rating')),
-          difficulty: Number(data.get('difficulty')),
-          recommended: Boolean(data.get('recommended')),
-          evaluation_method: String(data.get('evaluation_method')),
-          comment: String(data.get('comment')),
+        const body:iEvaluate = {
+            rating: Number(data.get('rating')),
+            difficulty: Number(data.get('difficulty')),
+            recommended: Boolean(data.get('recommended')),
+            evaluation_method: String(data.get('evaluation_method')),
+            comment: String(data.get('comment')),
+            student: 'static',
+            professor: String(data.get('professor')),
+            subject: String(id),
         };
         console.log(body);
-    
+        evaluate(body)
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err));
+
     };
 
     return (<EvaluatePage
         handleSubmit={handleSubmit}
         subject_name={subjectName}
-        id={String(id)}
         professors={professors}
     />)
 }
