@@ -65,7 +65,7 @@ export default function SubjectPage() {
                     rating: evaluation? evaluation.rating : 0,
                     difficulty: evaluation? evaluation.difficulty : 0,
                     recommend: evaluation? evaluation.recommended : false,
-                    evaluation_method: evaluation? evaluation.evaluation_method : "",
+                    evaluation_method: evaluation.evaluation_method? evaluation.evaluation_method : "Não informado",
                     comment: evaluation? evaluation.comment : ""
                 }
                 console.log(data);
