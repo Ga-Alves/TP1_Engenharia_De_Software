@@ -1,10 +1,9 @@
-import { Autocomplete, Button, Box, Checkbox, Container, FormControlLabel, Grid, Paper, Rating, Slider, TextField, Typography } from '@mui/material';
-import { height, width } from '@mui/system';
+import { Button, Box, Checkbox, Container, FormControlLabel, Grid, Paper, Rating, Slider, TextField, Typography, Select, MenuItem } from '@mui/material';
 import { useState } from 'react';
 import { theme } from '../../theme';
 
 type infos = {
-    professor: {name: string|null, id: string|null};
+    professor: string;
     rating: number;
     difficulty: number;
     recommended: boolean;
@@ -23,17 +22,16 @@ type Props = {
 export default function Evaluate(props: Props) {
 
     const [infos, setInfos] = useState<infos>({
-        professor: {name: "", id: ""},
+        professor: '',
         rating: 0,
         difficulty: 0,
         recommended: false,
     });
 
-    function handleChange(event: any, newValue: any) {
-        console.log(event.target.name,newValue)
+    function handleChange(event: any) {
         setInfos({
             ...infos,
-            [event.target.name]: newValue,
+            [event.target.name]: event.target.value,
         });
     }
 
@@ -57,15 +55,16 @@ export default function Evaluate(props: Props) {
                     <Box component="form" noValidate onSubmit={props.handleSubmit}>
                         <Grid sx={{ width: '15vw' }} paddingTop={3}>
                             <Typography variant='h5' sx={{ marginTop: '1.3rem', marginBottom: "0.8rem" }}> Quem foi seu professor? </Typography>
-                            <Autocomplete
-                                id="professor"
-                                value={infos.professor}
-                                options={props.professors}
-                                getOptionLabel={(option) => option.name ? option.name : ""}
+                            <Select
+                                name='professor'
                                 sx={{ width: 300 }}
-                                renderInput={(params) => <TextField {...params} />}
-                                onChange={event => handleChange(event)}
-                            />
+                                value={infos.professor}
+                                onChange={handleChange}>
+                                {props.professors.map((item, i) => <MenuItem key={i} value={item.id}>{item.name}</MenuItem>)}
+                            </Select>
+                            <div>
+                                
+                            </div>
                         </Grid>
                         <Grid paddingTop={3}>
                             <Typography variant='h5' sx={{ marginTop: '1.3rem', marginBottom: "0.8rem" }}> Nota da disciplina </Typography>
@@ -85,7 +84,7 @@ export default function Evaluate(props: Props) {
                         <Grid sx={{ width: '35vw' }} paddingTop={3}>
                             <Typography variant='h5' sx={{ marginTop: '1.3rem', marginBottom: "0.8rem" }}> Como era o sistema de avaliação? </Typography>
                             <TextField
-                                name='evaluation-method'
+                                name='evaluation_method'
                                 multiline
                                 placeholder="2 provas valendo 40% cada, 1 trabalho valendo 20%"
                                 fullWidth
@@ -98,6 +97,7 @@ export default function Evaluate(props: Props) {
                             <Typography variant='body2' sx={{ color: "#7d7d7d", marginBottom: "0.8rem" }}> Aproveite esse campo para contar como eram as aulas, a didática, o nível de cobrança e dicas para os alunos</Typography>
                             <TextField
                                 id="evaluation-method"
+                                name='comment'
                                 multiline
                                 placeholder="As aulas eram muito interessantes, o professor era muito didático e as provas eram bem fáceis."
                                 fullWidth
