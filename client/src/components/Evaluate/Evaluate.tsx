@@ -107,7 +107,7 @@ export default function Evaluate(props: Props) {
                         </Grid>
 
                         <Grid sx={{ width: '35vw' }} paddingTop={3}>
-                            <FormControlLabel control={<Checkbox defaultChecked />} label="Eu recomendo essa matéria" />
+                            <FormControlLabel control={<Checkbox name='recommended' value={infos.recommended} onChange={handleChange}/>} label="Eu recomendo essa matéria" />
                         </Grid>
                         <Grid paddingTop={3}>
                             <Button variant="contained" type='submit'> Enviar avaliação </Button>
