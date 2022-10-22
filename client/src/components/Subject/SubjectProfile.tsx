@@ -6,31 +6,18 @@ import Evaluations from './Evaluations/Evaluations';
 import StudentComment from './StudentComment/StudentComment';
 import {theme} from '../../theme';
 
-type Props = {
-    subject: {
-        name?: string;
-        syllabus?: string;
-        code?: string;
-        rating?: number;
-        difficulty?: number;
-        recommend_rate?: number;},
+// interfaces
+import {Subject} from '../../types/subject';
+import { Professor } from '../../types/professor';
+import { Evaluation } from '../../types/evaluation';
 
-    professors:
-        {
-            name?: string;
-            rating?: number;
-        }[],
-    evaluations: 
-        {
-            rating?: number;
-            difficulty?: number;
-            evaluation_method?: string;
-            recommend?: boolean;
-            comment?: string;
-        }[]
+export type Props = {
+    subject:Subject;
+    professors:Professor[],
+    evaluations:Evaluation[]
 }
 
-export default function Subject({subject, professors, evaluations}:Props) {
+export function SubjectProfile({subject, professors, evaluations}:Props) {
 
     const rating = 3.5;
 
@@ -53,7 +40,7 @@ export default function Subject({subject, professors, evaluations}:Props) {
             >
                 <Header
                     rating={subject.rating}
-                    name={subject.name}
+                    name={subject ? subject.name : ''}
                     code={subject.code}
         
                 />
