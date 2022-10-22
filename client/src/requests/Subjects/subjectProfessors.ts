@@ -2,7 +2,7 @@ import { api } from "../../service/api";
 
 import { Professor } from "../../types/professor";
 
-export async function subjectProfessors(id:string):Promise<Professor[]> {
+async function subjectProfessors(id:string):Promise<Professor[]> {
     const res = await api.get(`professores/materia/${id}`);
 
     return res.data.map((item:any) => ({
@@ -12,3 +12,5 @@ export async function subjectProfessors(id:string):Promise<Professor[]> {
         rating: 4,
     }));
 }
+
+export {subjectProfessors}
