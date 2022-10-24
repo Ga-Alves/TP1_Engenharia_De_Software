@@ -17,7 +17,7 @@ const professorController = new ProfessorController();
 
 router.post('/aluno/signup', studentController.handleCreateStudent);
 router.post('/aluno/login', studentController.handleLoginStudent);
-router.get('/aluno/:id', studentController.handleGetStudent);
+router.get('/aluno', studentController.handleGetStudent);
 
 router.get('/materia', subjectController.handleGetSubjects);
 router.get('/materia/:id', subjectController.handleGetSubjectById);

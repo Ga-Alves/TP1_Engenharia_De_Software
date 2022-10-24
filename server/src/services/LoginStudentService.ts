@@ -5,6 +5,7 @@ import { prismaClient } from "../database/script";
 
 class LoginStudentService {
   async execute({ email, password }: Pick<Student, 'email' | 'password'>) {
+
     const student = await prismaClient.student.findFirst({
       where: {
         email
@@ -12,13 +13,11 @@ class LoginStudentService {
     });
 
     if (!student)
-      throw new Error("Email ou senha incorretos!");
+      throw new Error("!Email ou senha incorretos!");
+
+
 
     const passwordMatches = await compare(password, student.password);
-
-    console.log(password);
-    console.log(student.password);
-    console.log(passwordMatches);
 
     if (!passwordMatches)
       throw new Error("Email ou senha incorretos!");
@@ -30,6 +29,7 @@ class LoginStudentService {
       expiresIn: "1d"
     });
 
+    console.log(student.id);
     return token;
   }
 }
