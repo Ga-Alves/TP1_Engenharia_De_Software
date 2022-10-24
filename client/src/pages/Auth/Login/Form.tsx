@@ -15,7 +15,6 @@ import { loginBody } from '../../../requests/login';
 // requests
 import login from '../../../requests/login';
 
-
 export default function() {
 
     const navigate = useNavigate();
@@ -29,7 +28,9 @@ export default function() {
           password: String(data.get('password')),
         };
         login(body)
-          .then((res) => navigate('../dashboard/list'))
+          .then((res) => {
+            navigate('../dashboard/list');
+          })
           .catch((err) => console.log('ERRO: ', err.response.data));
     };
 
