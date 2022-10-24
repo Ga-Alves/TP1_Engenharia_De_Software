@@ -25,6 +25,7 @@ router.get('/materia/:id', subjectController.handleGetSubjectById);
 
 router.get('/avaliacoes/:id', evaluationController.handleGetEvaluationBySubjectId);
 router.post('/avaliacoes',
+  userLogged,
   studentValidate(),
   evaluationController.handleCreateEvaluation);
 
