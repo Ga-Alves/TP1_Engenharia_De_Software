@@ -27,11 +27,21 @@ model Student {
 }
 
 model Subject {
-  id         String   @id @default(uuid())
-  name       String   @unique
+  id         String @id @default(uuid())
+  name       String @unique
   syllabus   String
   department String
   workload   Int
+  code       String
+
+  //? Calculations
+  rating_sum     Int @default(0)
+  rating_cnt     Int @default(0)
+  difficulty_sum Int @default(0)
+  difficulty_cnt Int @default(0)
+  recommend_sum  Int @default(0)
+  recommend_cnt  Int @default(0)
+
   created_at DateTime @default(now())
 
   evaluations Evaluation[]

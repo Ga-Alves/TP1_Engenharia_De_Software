@@ -1,7 +1,7 @@
 import { api } from "../service/api";
 import { Subject } from "../types/subject";
 
-export async function getSubject(id:string):Promise<Subject>{
+export async function getSubject(id: string): Promise<Subject> {
     const res = await api.get(`materia/${id}`);
 
     return {
@@ -14,4 +14,7 @@ export async function getSubject(id:string):Promise<Subject>{
         difficulty: 4,
         recommend_rate: 4,
     }
+    //? Alves: pode deixar assim :)
+    //? ass: Bernardo
+    return res.data;
 }

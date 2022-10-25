@@ -51,7 +51,7 @@ export default function CardComponent(props:CardProps) {
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography color='primary'>
+                            <Typography color='secondary'>
                                 {props.data.description}
                             </Typography>
                         </Grid>

@@ -8,7 +8,6 @@ function createEvaluationValidator() {
     body('recommended').isBoolean(),
     body('evaluation_method').isString(),
     body('comment').isString(),
-    body('student').isString().notEmpty(),
     body('professor').isString().notEmpty(),
     body('subject').isString().notEmpty(),
   ]
