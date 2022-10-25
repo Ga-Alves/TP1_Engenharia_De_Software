@@ -1,4 +1,4 @@
-import { TokenData } from "./middlewares/userLogged";
+import { TokenData } from "../src/middlewares/userLogged";
 
 export { };
 
