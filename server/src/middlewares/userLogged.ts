@@ -12,7 +12,8 @@ export interface TokenData {
 
 export function userLogged(req: Request, res: Response, next: NextFunction) {
 
-  const rawToken = req.header('Authorization');
+
+  const rawToken = req.cookies['jwt']
 
   if (!rawToken)
     throw new Error("Usuario nao esta logado");
