@@ -1,5 +1,4 @@
 // pages
-import Navbar from "./components/Navbar/Navbar";
 import {theme} from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -26,7 +25,6 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Navbar/>
       <Outlet/>
     </ThemeProvider>
   )
