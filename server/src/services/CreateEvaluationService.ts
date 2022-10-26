@@ -26,6 +26,13 @@ class CreateEvaluationService {
       }
     });
 
+    await prismaClient.professor.update({
+      where: { id: professor },
+      data: {
+        rating_sum: { increment: rating },
+        rating_cnt: { increment: 1 }
+      }
+    });
 
     return evaluation;
   }
