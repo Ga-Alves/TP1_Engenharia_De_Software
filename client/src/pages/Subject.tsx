@@ -35,7 +35,6 @@ export default function SubjectPage() {
                 setProfessors(professors)
                 const evaluations = await avaliacoes(id)
                 setEvaluations(evaluations)
-                
 
             } catch(err:any) {
                 console.error(err);

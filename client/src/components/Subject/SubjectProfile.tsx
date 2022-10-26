@@ -18,9 +18,6 @@ export type Props = {
 }
 
 export function SubjectProfile({subject, professors, evaluations}:Props) {
-
-    const rating = 3.5;
-
     return (
     <Grid
         sx={{
