@@ -37,7 +37,15 @@ export default function() {
         university: 'UFMG',
       }
       signup(body)
-        .then((res) => navigate('../login'))
+        .then((res) => {
+          navigate('../login');
+          Swal.fire({
+            icon: 'success',
+            text: 'Cadastrado com sucesso!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        })
         .catch((err) => {
           console.log(err.response);
           
