@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import EvaluatePage from "../components/Evaluate/Evaluate"
+import { myData } from "../requests/myData";
 import { getSubject } from "../requests/subject";
 import { evaluate, iEvaluate } from "../requests/Subjects/evaluate";
 import { subjectProfessors } from "../requests/Subjects/subjectProfessors";
@@ -20,6 +21,7 @@ interface iSubjectProps {
 export default function Evaluate(){
 
     const {id} = useParams()
+    const navigate = useNavigate()
     const [professors, setProfessors] = useState<iProfessor[]>([]);
     const [subjectName, setSubjectName] = useState<string>('')
     
@@ -40,20 +42,31 @@ export default function Evaluate(){
         event.preventDefault();
         const data = new FormData(event.currentTarget);
     
-        const body:iEvaluate = {
-            rating: Number(data.get('rating')),
-            difficulty: Number(data.get('difficulty')),
-            recommended: Boolean(data.get('recommended')),
-            evaluation_method: String(data.get('evaluation_method')),
-            comment: String(data.get('comment')),
-            student: 'static',
-            professor: String(data.get('professor')),
-            subject: String(id),
-        };
-        console.log(body);
-        evaluate(body)
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
+        
+        myData()
+            .then((res) => {
+                const userID = res.data.id;
+                
+                const body:iEvaluate = {
+                    rating: Number(data.get('rating')),
+                    difficulty: Number(data.get('difficulty')),
+                    recommended: Boolean(data.get('recommended')),
+                    evaluation_method: String(data.get('evaluation_method')),
+                    comment: String(data.get('comment')),
+                    student: userID,
+                    professor: String(data.get('professor')),
+                    subject: String(id),
+                };
+                navigate(`../../dashboard/subject/${id}`)
+                evaluate(body)
+                    .then((res) => console.log(res))
+                    .catch((err) => console.log(err));
+
+
+            })
+            .catch((err) => {
+                console.log(err.response);
+            })
 
     };
 
