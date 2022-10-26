@@ -3,7 +3,7 @@ export interface Evaluation
     id: string;
     rating: number;
     difficulty: number;
-    recommend: boolean;
+    recommended: boolean;
     evaluation_method: string;
     comment: string;
 }

@@ -101,7 +101,7 @@ export function SubjectProfile({subject, professors, evaluations}:Props) {
                     {
                         evaluations.map((evaluation) => {
                             return(
-                                <StudentComment rating={evaluation.rating} difficulty={evaluation.difficulty} evaluation_method={evaluation.evaluation_method} recommend={evaluation.recommend} comment={evaluation.comment}/>
+                                <StudentComment rating={evaluation.rating} difficulty={evaluation.difficulty} evaluation_method={evaluation.evaluation_method} recommend={evaluation.recommended} comment={evaluation.comment}/>
                             )
                         })
                     }
