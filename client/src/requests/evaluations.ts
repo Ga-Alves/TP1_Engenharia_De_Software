@@ -3,10 +3,11 @@ import { Evaluation } from "../types/evaluation";
 
 export async function avaliacoes(id:string):Promise<Evaluation[]>{
     const res = await api.get(`avaliacoes/${id}`);
+    
 
     return res.data.map((item:any) => ({
         id: item.id,
-        rating: 4,
+        rating: item.rating,
         dificulty: item.dificulty,
         recommend: item.recommend,
         evaluation_method: item.evaluation_method,
