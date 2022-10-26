@@ -1,10 +1,10 @@
-import { TokenData } from "../src/middlewares/userLogged";
+import { TokenData } from "../../middlewares/userLogged";
 
 export { };
 
 declare global {
   namespace Express {
-    export interface Request {
+    interface Request {
       token: TokenData;
     }
   }
