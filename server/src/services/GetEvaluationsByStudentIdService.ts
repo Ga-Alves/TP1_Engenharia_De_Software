@@ -11,7 +11,11 @@ class GetEvaluationsByStudentIdService {
         id
       },
       include: {
-        evaluationsGiven: true
+        evaluationsGiven: {
+          orderBy: {
+            created_at: 'desc'
+          }
+        }
       }
     });
 
