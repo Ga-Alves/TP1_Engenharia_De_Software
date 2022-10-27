@@ -4,6 +4,7 @@ import { ProfessorController } from "./controllers/ProfessorController";
 import { StudentController } from "./controllers/StudentController";
 import { SubjectController } from "./controllers/SubjectController";
 import { studentValidate } from "./middlewares/CreateEvaluationValidator";
+import { userLogged } from "./middlewares/userLogged";
 
 const router = Router();
 
@@ -17,13 +18,14 @@ const professorController = new ProfessorController();
 
 router.post('/aluno/signup', studentController.handleCreateStudent);
 router.post('/aluno/login', studentController.handleLoginStudent);
-router.get('/aluno', studentController.handleGetStudent);
+router.get('/aluno', userLogged, studentController.handleGetStudent);
 
 router.get('/materia', subjectController.handleGetSubjects);
 router.get('/materia/:id', subjectController.handleGetSubjectById);
 
 router.get('/avaliacoes/:id', evaluationController.handleGetEvaluationBySubjectId);
 router.post('/avaliacoes',
+  userLogged,
   studentValidate(),
   evaluationController.handleCreateEvaluation);
 

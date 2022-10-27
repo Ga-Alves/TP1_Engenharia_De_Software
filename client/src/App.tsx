@@ -1,5 +1,4 @@
 // pages
-import Navbar from "./components/Navbar/Navbar";
 import {theme} from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -23,12 +22,9 @@ declare module '@mui/material/styles' {
 function App() {
 
   return (
-    <AuthProvider>
-      <ThemeProvider theme={theme}>
-        <Navbar/>
-        <Outlet/>
-      </ThemeProvider>
-    </AuthProvider>
+    <ThemeProvider theme={theme}>
+      <Outlet/>
+    </ThemeProvider>
   )
 }
 

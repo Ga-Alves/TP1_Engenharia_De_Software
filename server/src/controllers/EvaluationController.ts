@@ -17,8 +17,10 @@ class EvaluationController {
 
   async handleCreateEvaluation(request: Request, response: Response) {
     const { rating, difficulty, recommended,
-      evaluation_method, comment, student,
+      evaluation_method, comment,
       professor, subject } = request.body;
+
+    const student = request.token.sub;
 
     const createEvaluationService = new CreateEvaluationService();
 

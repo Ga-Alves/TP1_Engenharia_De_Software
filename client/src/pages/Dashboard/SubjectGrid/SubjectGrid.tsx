@@ -24,6 +24,8 @@ interface subject {
     department: string;
     workload: number;
     created_at: string;
+    code: string;
+    rating: number;
 }
 
 
@@ -43,14 +45,16 @@ export default function SubjectGrid() {
     useEffect(() =>{
         listSubjects()
             .then((res) => {
+                console.log(res.data);
+                
                 const list = res.data.map((item:subject) => {
                     const card:SubjectCard ={
                         id: item.id,
                         subject: item.name,
-                        subjectCode: item.department + ' ' + 'static!',
+                        subjectCode: item.code,
                         description: item.syllabus,
                         workload: String(item.workload),
-                        rating: 'static!!'
+                        rating:String((Math.floor( item.rating * 100) / 100)),
                     }
                     return card;
                 })

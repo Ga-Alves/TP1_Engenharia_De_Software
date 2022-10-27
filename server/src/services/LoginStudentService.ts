@@ -15,8 +15,6 @@ class LoginStudentService {
     if (!student)
       throw new Error("!Email ou senha incorretos!");
 
-
-
     const passwordMatches = await compare(password, student.password);
 
     if (!passwordMatches)
@@ -30,7 +28,6 @@ class LoginStudentService {
       expiresIn: "1d"
     });
 
-    console.log(student.id);
     return {token, student};
   }
 }

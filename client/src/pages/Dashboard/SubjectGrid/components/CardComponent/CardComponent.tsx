@@ -31,7 +31,7 @@ export default function CardComponent(props:CardProps) {
     return (
         <div className='CardComponent'>
             <Card sx={{ maxWidth: 400 }}>
-                <CardActionArea sx={{padding: '10px'}} onClick={() => navigate('../../subject/' + props.data.id)}> 
+                <CardActionArea sx={{padding: '10px'}} onClick={() => navigate('../../dashboard/subject/' + props.data.id)}> 
                     <Chip color='info' label={props.data.subjectCode}/>
 
                     <Grid container marginTop={1}>
@@ -51,7 +51,7 @@ export default function CardComponent(props:CardProps) {
                             </Typography>
                         </Grid>
                         <Grid item xs={12}>
-                            <Typography color='primary'>
+                            <Typography color='secondary'>
                                 {props.data.description}
                             </Typography>
                         </Grid>

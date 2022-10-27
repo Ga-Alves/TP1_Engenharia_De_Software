@@ -185,15 +185,18 @@ async function main() {
         },
       ];
 
-    const anySubject = await prismaClient.subject.findFirst();
+    const anySubject = await prismaClient.subject.findFirst({
+      include: {
+        professors: {
+          take: 1
+        }
+      }
+    });
     const anyStudent = await prismaClient.student.findFirst();
-    const anyProfessor = await prismaClient.professor.findFirst();
-
-    console.log(`id:${anySubject?.id}`)
+    const anyProfessor = anySubject?.professors[0];
 
     if (anySubject && anyStudent && anyProfessor)
       for (let data of defaultEvaluations) {
-        console.log(`New eval ${data.difficulty} ${data.rating} ${data.recommended}`)
 
         await prismaClient.evaluation.create({
           data: {
@@ -215,7 +218,14 @@ async function main() {
             recommend_sum: { increment: (data.recommended ? 1 : 0) },
             recommend_cnt: { increment: 1 },
           }
-        })
+        });
+        await prismaClient.professor.update({
+          where: { id: anyProfessor.id },
+          data: {
+            rating_sum: { increment: data.rating },
+            rating_cnt: { increment: 1 }
+          }
+        });
       }
 
   }
