@@ -27,13 +27,13 @@ class StudentController {
 
     const loginStudentService = new LoginStudentService();
 
-    const token = await loginStudentService.execute({ email, password });
+    const {token, student} = await loginStudentService.execute({ email, password });
 
     response.cookie('jwt', token, {
       httpOnly: true
     });
 
-    return response.status(202).json({ msg: "Bem vindo ao RateMyProfessor!" });
+    return response.status(202).json({student: student});
   }
 
   async handleGetStudent(request: Request, response: Response) {

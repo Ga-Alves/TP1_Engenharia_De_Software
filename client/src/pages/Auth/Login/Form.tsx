@@ -5,15 +5,20 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
+import Swal from 'sweetalert2';
+
 
 // router dom
 import { useNavigate } from 'react-router-dom';
+
 
 // interfaces
 import { loginBody } from '../../../requests/login';
 
 // requests
 import login from '../../../requests/login';
+
+import userContext from '../../../authContext'
 
 
 export default function() {
@@ -30,7 +35,14 @@ export default function() {
         };
         login(body)
           .then((res) => navigate('../dashboard/list'))
-          .catch((err) => console.log('ERRO: ', err.response.data));
+          .catch((err) => 
+              Swal.fire({
+                title: 'Email ou senha incorretos',
+                text: 'Verifique se o e-mail já foi cadastrado ou se a senha foi digitada corretamente',
+                icon: 'error',
+                confirmButtonText: 'Ok!'
+              })
+          );
     };
 
     return (

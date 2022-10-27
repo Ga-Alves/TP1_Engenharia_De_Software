@@ -237,3 +237,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 ## Banco de Dados
 
 ![Imagem](./assets/dbimg.jpeg)
+
+## Rodar o front
+1. Fazer `npm install`
+2. Rodar `cp .env.example .env`

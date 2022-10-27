@@ -4,6 +4,7 @@ import {theme} from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
 
 import {Outlet} from 'react-router-dom';
+import { AuthProvider } from './authContext';
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -19,16 +20,15 @@ declare module '@mui/material/styles' {
   }
 }
 
-
-
-
 function App() {
 
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar/>
-      <Outlet/>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={theme}>
+        <Navbar/>
+        <Outlet/>
+      </ThemeProvider>
+    </AuthProvider>
   )
 }
 
