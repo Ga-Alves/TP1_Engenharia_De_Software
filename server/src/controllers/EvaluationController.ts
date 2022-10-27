@@ -1,6 +1,7 @@
 
 import { Request, Response } from "express";
 import { CreateEvaluationService } from "../services/CreateEvaluationService";
+import { GetEvaluationsByStudentIdService } from "../services/GetEvaluationsByStudentIdService";
 import { GetEvaluationsBySubjectIdService } from "../services/GetEvaluationsBySubjectIdService";
 
 class EvaluationController {
@@ -32,6 +33,18 @@ class EvaluationController {
 
     response.json(evaluation);
   }
+
+  async handleGetEvaluationByStudentId(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const getEvaluationsByStudentIdService =
+      new GetEvaluationsByStudentIdService()
+
+    const evaluations = await getEvaluationsByStudentIdService.execute({ id });
+
+    return response.json(evaluations);
+  }
+
 }
 
 export { EvaluationController };
