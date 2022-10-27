@@ -18,13 +18,6 @@ class GetEvaluationsBySubjectIdService {
     if (!subject)
       throw new Error("Nao existe uma matéria com este id!");
 
-    console.log(subject.evaluations);
-
-    //! DEBUG
-    const allEvals = await prismaClient.evaluation.findMany();
-    console.log(allEvals);
-
-
     return subject.evaluations;
   }
 }

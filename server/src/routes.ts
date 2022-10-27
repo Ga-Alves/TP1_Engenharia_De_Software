@@ -24,6 +24,7 @@ router.get('/materia', subjectController.handleGetSubjects);
 router.get('/materia/:id', subjectController.handleGetSubjectById);
 
 router.get('/avaliacoes/:id', evaluationController.handleGetEvaluationBySubjectId);
+router.get('/avaliacoes/aluno/:id', evaluationController.handleGetEvaluationByStudentId);
 router.post('/avaliacoes',
   userLogged,
   studentValidate(),
