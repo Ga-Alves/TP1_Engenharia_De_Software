@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar/Navbar';
     return(
         <div className="Dashboard">
             <Navbar/>
-            <List/>
+            <Outlet/>
         </div>
     )
  }
