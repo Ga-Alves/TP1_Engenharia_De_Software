@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext} from 'react'
 
 //style
 import './SubjectGrid.css'
@@ -17,6 +17,9 @@ import { SubjectCard } from './components/CardComponent/CardComponent'
 import listSubjects
   from '../../../requests/Subjects/listSubjects'
 
+// context
+import { QueryContext } from '../../../context/searchContext'
+
 interface subject {
     id: string;
     name: string;
@@ -32,6 +35,8 @@ interface subject {
 export default function SubjectGrid() {
     const [subjects, setSubjects] = useState<Array<SubjectCard>>([])
     const [filter, setFilter] = useState<string>('')
+
+    const { query } = useContext(QueryContext)
 
     function filterList(list:Array<SubjectCard>) {
         const filtro = list.filter((item) => {
@@ -63,17 +68,14 @@ export default function SubjectGrid() {
             }
             )
     }, [])
+
+    useEffect(() => {
+        setFilter(query)
+    }, [query])
     
    
     return(
-        <Grid paddingX={6}>
-            <TextField 
-                fullWidth
-                style={{marginTop:'80px', marginBottom:'5vh'}}
-                label='Filtrar'
-                value={filter} 
-                onChange={(e) => setFilter(e.target.value)}
-            />
+        <Grid paddingX={6} marginTop={15}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {filterList(subjects).map((item, i) => {
                     return (
