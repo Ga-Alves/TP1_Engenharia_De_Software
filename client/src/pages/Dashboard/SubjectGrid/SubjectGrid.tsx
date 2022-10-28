@@ -9,7 +9,7 @@ import Card
 
 
 // MUI
-import { TextField } from '@mui/material'
+import { TextField, Grid } from '@mui/material'
 // interfaces
 import { SubjectCard } from './components/CardComponent/CardComponent'
 
@@ -37,7 +37,8 @@ export default function SubjectGrid() {
         const filtro = list.filter((item) => {
             const subject = item.subject.toLowerCase().includes(filter.toLowerCase())
             const subjectCode = item.subjectCode.toLowerCase().includes(filter.toLowerCase())
-            return subject || subjectCode
+            const syllabus = item.description.toLowerCase().includes(filter.toLowerCase())
+            return subject || subjectCode || syllabus
         })
         return filtro
     }
@@ -65,16 +66,22 @@ export default function SubjectGrid() {
     
    
     return(
-        <>
+        <Grid paddingX={6}>
             <TextField 
-                style={{margin:'100px 0px 0px 1vw'}}
+                fullWidth
+                style={{marginTop:'80px', marginBottom:'5vh'}}
                 label='Filtrar'
                 value={filter} 
                 onChange={(e) => setFilter(e.target.value)}
             />
-            <div className="SubjectGrid">
-                {filterList(subjects).map((item, i) => <Card data={item} key={i}/>)}
-            </div>
-        </>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                {filterList(subjects).map((item, i) => {
+                    return (
+                    <Grid item xs={2} sm={3} md={4} key={i}>
+                        <Card data={item}/>
+                    </Grid>
+                )})}
+            </Grid>
+        </Grid>
     )
 }
