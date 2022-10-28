@@ -1,5 +1,5 @@
 import {Button, Chip, Grid, Rating, Typography} from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 
 type Props = {
     rating: number;
@@ -10,6 +10,8 @@ type Props = {
 export default function Header({rating, name, code}:Props) {
     
     const {id} = useParams()
+    const navigate = useNavigate()
+
     
     return (
         <Grid
@@ -47,7 +49,7 @@ export default function Header({rating, name, code}:Props) {
                     <Grid
                         container
                     >
-                        <Button variant='outlined' href={`../subject/evaluate/${id}`}> Avaliar esta matéria </Button>
+                        <Button variant='outlined' onClick={() => navigate(`../subject/evaluate/${id}`)}> Avaliar esta matéria </Button>
                     </Grid>
        
 

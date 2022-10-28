@@ -3,7 +3,6 @@ import List from '../pages/Dashboard/SubjectGrid/SubjectGrid';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Subject from '../pages/Subject';
 import Evaluate from '../pages/Evaluate';
-import Login from '../pages/Auth/Login/Login';
 
 
 function PrivateRoutes(){

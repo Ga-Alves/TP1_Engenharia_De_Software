@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState, useEffect} from 'react'
 
 type student = {
     id: string;
@@ -17,6 +17,7 @@ export const AuthContext = createContext({} as any)
 export const AuthProvider = ({children}: any) => {
     const [user, setUser] = useState({} as student || null)
     const [auth, setAuth] = useState(false)
+
 
     return (
         <AuthContext.Provider value={{auth, setAuth, user, setUser}}>
