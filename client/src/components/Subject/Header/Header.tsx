@@ -44,7 +44,7 @@ export default function Header({rating, name, code}:Props) {
                         item xs={3}
                     >
                         <Rating value={rating} name="size-large" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
-                        <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating} </Typography>
+                        <Typography variant='body1' sx={{marginLeft: '1vh'}}> {+rating.toFixed(2)} </Typography>
                     </Grid>
                     <Grid
                         container
