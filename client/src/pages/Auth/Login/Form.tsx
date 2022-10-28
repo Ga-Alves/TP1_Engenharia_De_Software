@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
@@ -5,9 +7,12 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
+import Swal from 'sweetalert2';
+
 
 // router dom
 import { useNavigate } from 'react-router-dom';
+
 
 // interfaces
 import { loginBody } from '../../../requests/login';
@@ -15,7 +20,12 @@ import { loginBody } from '../../../requests/login';
 // requests
 import login from '../../../requests/login';
 
+//context
+import { AuthContext } from '../../../context/authContext';
+
 export default function() {
+
+    const {auth, setAuth, user, setUser} = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -28,10 +38,17 @@ export default function() {
           password: String(data.get('password')),
         };
         login(body)
-          .then((res) => {
-            navigate('../dashboard/list');
-          })
-          .catch((err) => console.log('ERRO: ', err.response.data));
+          .then((res) => setUser(res.data.student))
+          .then((res) => setAuth(true))
+          .then((res) => navigate('../dashboard/home'))
+          .catch((err) => 
+              Swal.fire({
+                title: 'Email ou senha incorretos',
+                text: 'Verifique se o e-mail já foi cadastrado ou se a senha foi digitada corretamente',
+                icon: 'error',
+                confirmButtonText: 'Ok!'
+              })
+          );
     };
 
     return (

@@ -19,15 +19,16 @@ class LoginStudentService {
 
     if (!passwordMatches)
       throw new Error("Email ou senha incorretos!");
-
     const token = sign({
-      email: student.email
+        id: student.id,
+        name: student.name,
+        email: student.email,
     }, (process.env.PASSWORD_HASH || "default"), {
       subject: student.id,
       expiresIn: "1d"
     });
 
-    return token;
+    return {token, student};
   }
 }
 
