@@ -1,10 +1,8 @@
 // pages
 import {theme} from "./theme";
 import { ThemeProvider } from '@mui/material/styles';
-
-import {Outlet} from 'react-router-dom';
-import { AuthProvider } from './authContext';
-
+import React, {useContext} from 'react'
+import { AuthContext } from "./context/authContext";
 import PublicRoutes from './routes/public.routes'
 import PrivateRoutes from './routes/private.routes'
 
@@ -24,11 +22,13 @@ declare module '@mui/material/styles' {
 
 function App() {
 
+  const {auth} = useContext(AuthContext)
+  console.log("routes", auth)
   return (
     <ThemeProvider theme={theme}>
-      <PublicRoutes/>
+      {auth ? <PrivateRoutes/> : <PublicRoutes/>}
     </ThemeProvider>
-  )
+  );
 }
 
 export default App

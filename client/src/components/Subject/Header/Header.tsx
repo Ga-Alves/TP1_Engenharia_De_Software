@@ -29,7 +29,7 @@ export default function Header({rating, name, code}:Props) {
                 alignItems='center'
             >
                     <Grid
-                        xs={9}
+                        item xs={9}
                     >
                         <Typography
                             variant='h2'
@@ -39,7 +39,7 @@ export default function Header({rating, name, code}:Props) {
                     </Grid>
                     <Grid
                         container
-                        xs={3}
+                        item xs={3}
                     >
                         <Rating value={rating} name="size-large" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>
                         <Typography variant='body1' sx={{marginLeft: '1vh'}}> {rating} </Typography>

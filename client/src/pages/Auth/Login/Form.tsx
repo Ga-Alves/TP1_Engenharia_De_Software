@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
@@ -18,7 +20,12 @@ import { loginBody } from '../../../requests/login';
 // requests
 import login from '../../../requests/login';
 
+//context
+import { AuthContext } from '../../../context/authContext';
+
 export default function() {
+
+    const {auth, setAuth, user, setUser} = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -31,7 +38,9 @@ export default function() {
           password: String(data.get('password')),
         };
         login(body)
-          .then((res) => navigate('../dashboard/list'))
+          .then((res) => setUser(res.data.student))
+          .then((res) => setAuth(true))
+          .then((res) => navigate('../dashboard/home'))
           .catch((err) => 
               Swal.fire({
                 title: 'Email ou senha incorretos',

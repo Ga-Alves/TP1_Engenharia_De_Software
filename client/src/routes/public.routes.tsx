@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {BrowserRouter, Routes, Route}from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import Login from '../pages/Auth/Login/Login';
 import Register from '../pages/Auth/Signup/Signup';
 
@@ -10,6 +9,7 @@ function PublicRoutes(){
             <Routes>
                 <Route path="login" element={<Login/>}/>
                 <Route path="signup" element={<Register/>}/>
+                <Route path="*" element={<Navigate to="/login" replace />}/>
             </Routes>
         </BrowserRouter>
     )

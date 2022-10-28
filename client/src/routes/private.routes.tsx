@@ -1,20 +1,21 @@
-import * as React from 'react';
-import {BrowserRouter, Routes, Route}from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import List from '../pages/Dashboard/SubjectGrid/SubjectGrid';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Subject from '../pages/Subject';
 import Evaluate from '../pages/Evaluate';
+import Login from '../pages/Auth/Login/Login';
 
 
 function PrivateRoutes(){
     return(
         <BrowserRouter>
             <Routes>
-                <Route path="/app" element={<Dashboard/>}>
-                    <Route path="home" element={<List/>}/>
+                <Route path='dashboard' element={<Dashboard />}>
+                    <Route path='home' element={<List />}/>
                     <Route path='subject/:id' element={<Subject/>}/>
-                    <Route path='subject/:id/evaluate' element={<Evaluate/>}/>
+                    <Route path='subject/evaluate/:id' element={<Evaluate/>}/>
                 </Route>
+                <Route path="*" element={<Navigate to="dashboard/home" replace />} />
             </Routes>
         </BrowserRouter>
     )

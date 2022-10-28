@@ -27,7 +27,7 @@ export default function StudentComment({rating, difficulty, evaluation_method, r
                         marginBottom={1}
                     >
                         <Grid
-                            xs={9}
+                            item xs={9}
                             container
                             direction="row"
                         >
@@ -36,7 +36,7 @@ export default function StudentComment({rating, difficulty, evaluation_method, r
                         </Grid>
 
                         <Grid
-                            xs={3}
+                            item xs={3}
                             container
                          >
                             <Rating value={rating} size="medium" precision={0.5} getLabelText={(rating) => String(rating)} readOnly/>

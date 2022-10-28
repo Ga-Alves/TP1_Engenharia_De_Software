@@ -57,7 +57,7 @@ export default function Evaluate(){
                     professor: String(data.get('professor')),
                     subject: String(id),
                 };
-                navigate(`../../dashboard/subject/${id}`)
+                navigate(`../../app/subject/${id}`)
                 evaluate(body)
                     .then((res) => console.log(res))
                     .catch((err) => console.log(err));

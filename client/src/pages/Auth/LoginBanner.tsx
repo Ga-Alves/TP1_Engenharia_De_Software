@@ -8,7 +8,7 @@ export default function() {
     return (
         <Grid
             container
-            xs={7}
+            item xs={7}
             sx={{
             backgroundColor: 'F1F1F1',
             backgroundPosition: 'center',
