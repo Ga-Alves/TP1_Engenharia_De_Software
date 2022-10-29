@@ -74,7 +74,7 @@ Sistema de Avaliação de Matérias do Ensino Superior
 
 - Criar entidade ALUNO no banco de dados (Bernardo Borges)
 - Criar endpoint ```/aluno/signin``` "Criar Usuario" que recebe os
-dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
+dados de usuário e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 </details>  
 </br>
@@ -91,7 +91,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 - Modal de erro (Gabriel Alves Reis)
 
 ### Back
-- Criar endpoint ```/aluno/login``` "Logar como aluno" que recebe usuario e senha e autentica se o aluno existe e tem a senha correta. Caso contrario retorna erro para o front. (Bernardo Borges)
+- Criar endpoint ```/aluno/login``` "Logar como aluno" que recebe usuario e senha e autentica se o aluno existe e tem a senha correta. Caso contrário, retorna erro para o front. (Bernardo Borges)
 - Implementar hash da senha e salvar no bd de forma segura. (Luisa Toledo)
 </details>
 </br>
@@ -141,7 +141,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 - Realizar a função de filtro para nome do professor. (Gabriel Alves Reis)
 
 ### Back
-- Criar endpoint GET ```subject``` "Listar Materias" que retorna todas as matérias do sistema (Bernardo)
+- Criar endpoint GET ```subject``` "Listar Matérias" que retorna todas as matérias do sistema (Bernardo)
 </details>
 </br>
 
@@ -154,12 +154,12 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 ### Front
 
 - Mostar informações gerais (estrelas, ementa). (Thiago Miareli)
-- listar professores da matéria selecionada  (Gabriel Alves Reis)
-- listar avaliações da matéria selecionada. (Thiago Miareli)
+- Listar professores da matéria selecionada  (Gabriel Alves Reis)
+- Listar avaliações da matéria selecionada. (Thiago Miareli)
 
     
 ### Back
-- Criar endpoint GET ```subject/${id}``` "Dados da Materia por ID" que retorna uma matéria específica, com todos seus dados:   (Luisa Toledo)
+- Criar endpoint GET ```subject/${id}``` "Dados da Matéria por ID" que retorna uma matéria específica, com todos seus dados:   (Luisa Toledo)
 <code style="white-space:pre">
 {
     id
@@ -169,7 +169,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 }
 </code>
 
-- Criar endpoint GET ```evaluations/${subjectId}``` "Listar Avaliacoes dessa materia" que retorna todas as avaliações já feitas dentro dessa matéria
+- Criar endpoint GET ```evaluations/${subjectId}``` "Listar Avaliações dessa matéria" que retorna todas as avaliações já feitas dentro dessa matéria
 
 </details>
 </br>
@@ -181,14 +181,14 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 ### Front
 
-- Criar tela de Seleção de matéria a ser avaliada.   (Gabriel Alves Reis)
+- Criar tela de seleção de matéria a ser avaliada.   (Gabriel Alves Reis)
 - Criar tela de avaliação da matéria. (Thiago Miareli)
 - Criar tela de avaliação de professores.  (Gabriel Alves Reis)
 - Criar tela de comentários gerais. (Thiago Miareli)
 - Conexão com backend.  (Gabriel Alves Reis)
 
 ### Back
-- Criar o endpoint POST ```evaluations/create``` "Criar uma Avaliacao" que recebe todos os dados de uma avaliacao e os salva no banco de dados (Bernardo)
+- Criar o endpoint POST ```evaluations/create``` "Criar uma Avaliação" que recebe todos os dados de uma avaliação e os salva no banco de dados (Bernardo)
 </details>
 </br>
 
@@ -201,7 +201,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 - Criar lista de "minhas avaliações" na tela do aluno  (Thiago Miareli)
 
 ### Back
-- Criar enpoint GET ```evaluations/last``` "Lista ultimas avaliacoes do aluno" que retorna a lista com as últimas avaliações desse aluno. (Luisa Toledo)
+- Criar enpoint GET ```evaluations/last``` "Lista ultimas avaliações do aluno" que retorna a lista com as últimas avaliações desse aluno. (Luisa Toledo)
 
 
 </details>
@@ -216,20 +216,20 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 - Na tela de avaliação de professores, colocar um select/autocomplete com apenas os professores relacionados à matéria que está sendo avaliada.  (Gabriel Alves Reis)
 
 ### Back
-- Criar endpoint GET ```teachers/${subjectId}``` "Listar Professores da Materia" que retorna a lista com os professores associados a essa matéria. (Bernardo)
+- Criar endpoint GET ```teachers/${subjectId}``` "Listar Professores da Matéria" que retorna a lista com os professores associados a essa matéria. (Bernardo)
 </details>
 </br>
 
 <details>
     <summary>
-        ✍️ 10 - Eu como aluno quero ser capaz de deletar uma avaiação que fiz.
+        ✍️ 10 - Eu como aluno quero ser capaz de deletar uma avaliação que fiz.
     </summary>
     
 ### Front
 - Criar funcionalidade de deletar uma avaliação na tela do usuário. Utilizar rota: delete('evaluations/${id}'). (Thiago Miareli)
 
 ### Back
-- Criar endpoint DELETE ```evaluations/${id}``` "Deletar Avaliacao" que permite o usuário criador dessa avaliação deletá-la. (Luisa Toledo)
+- Criar endpoint DELETE ```evaluations/${id}``` "Deletar Avaliação" que permite o usuário criador dessa avaliação deletá-la. (Luisa Toledo)
 </details>
 
 
