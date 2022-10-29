@@ -6,7 +6,7 @@ Sistema de Avaliação de Matérias do Ensino Superior
 
 - Login  
 - Cadastro  
-- Valiação das Matérias  
+- Avaliação das Matérias  
 
 ## Tecnologias
 
@@ -25,15 +25,15 @@ Sistema de Avaliação de Matérias do Ensino Superior
 ## Membros da Equipe
 
 1. Gabriel Alves Reis  
-1. Luisa V. Toledo  
+1. Luisa Vasconcelos de Castro Toledo
 1. Thiago Miarelli  
 1. Bernardo Borges  
 
 ## Backlog do produto
 
- ✍️ Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e senha.
+ ✍️ Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e minha senha.
 </br>
-✍️ Eu como aluno gostaria de fazer login na plataforma utilizando meu email e senha.
+✍️ Eu como aluno gostaria de fazer login na plataforma utilizando meu email e minha senha.
 </br>
 ✍️ Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis.
 </br>
@@ -41,7 +41,7 @@ Sistema de Avaliação de Matérias do Ensino Superior
 </br>
 ✍️ Eu como aluno gostaria de pesquisar uma matéria por nome, professor ou código.
 </br>
-✍️ Eu como aluno gostaria de visualizar detalhadamento avaliações de uma matéria.
+✍️ Eu como aluno gostaria de visualizar detalhadamente avaliações de uma matéria.
 </br>
 ✍️Eu como aluno gostaria de avaliar uma  matéria e um professor que tive aula.
 </br>
@@ -49,16 +49,16 @@ Sistema de Avaliação de Matérias do Ensino Superior
 </br>
  ✍️ Eu como aluno gostaria de buscar uma matéria pela ementa.
 </br>
-✍️ Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua dicencia.   
+✍️ Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua discência.
 </br>
- ✍️ Eu como aluno quero ser capaz de deletar uma avaiação que fiz.
+ ✍️ Eu como aluno quero ser capaz de deletar uma avaliação que fiz.
 </br>
 
 ## Backlog da Sprint
 
 <details>
     <summary>
-        ✍️ 01 - Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e senha.
+        ✍️ 01 - Eu como aluno gostaria de me cadastrar na plataforma utilizando meu email e minha senha.
     </summary>
 
 ### UX
@@ -68,20 +68,20 @@ Sistema de Avaliação de Matérias do Ensino Superior
 ### Front
 
 - Realizar visual da tela de cadastro (Thiago Miareli)
-- Reaizar conexão com Back-End (Gabriel Alves Reis)
+- Realizar conexão com Back-End (Gabriel Alves Reis)
 
 ### Back
 
 - Criar entidade ALUNO no banco de dados (Bernardo Borges)
 - Criar endpoint ```/aluno/signin``` "Criar Usuario" que recebe os
-dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
+dados de usuario e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 </details>  
 </br>
 
 <details>
     <summary>
-        ✍️ 02 - Eu como aluno gostaria de fazer login na plataforma utilizando meu email e senha.
+        ✍️ 02 - Eu como aluno gostaria de fazer login na plataforma utilizando meu email e minha senha.
     </summary>
 
 ### Front
@@ -92,7 +92,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 ### Back
 - Criar endpoint ```/aluno/login``` "Logar como aluno" que recebe usuario e senha e autentica se o aluno existe e tem a senha correta. Caso contrario retorna erro para o front. (Bernardo Borges)
-- Implementar hash da senha e salvar no bd de forma segura. (Luisa V. Toledo)
+- Implementar hash da senha e salvar no bd de forma segura. (Luisa Toledo)
 </details>
 </br>
 
@@ -125,7 +125,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 - Listar matérias retornadas pela API por meio de cards. (Thiago Miareli)
 
 ### Back
-- Criar endpoint GET ```subject?q=${filtro}``` "Listar Materia" que retorna todas as materia cadastradas, seguindo o filtro. (Luisa V. Toledo)
+- Criar endpoint GET ```subject?q=${filtro}``` "Listar Materia" que retorna todas as matérias cadastradas, seguindo o filtro. (Luisa Toledo)
 </details>
 </br>
 
@@ -141,25 +141,25 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 - Realizar a função de filtro para nome do professor. (Gabriel Alves Reis)
 
 ### Back
-- Criar endpoint GET ```subject``` "Listar Materias" que retorna todas materias do sistema (Bernardo)
+- Criar endpoint GET ```subject``` "Listar Materias" que retorna todas as matérias do sistema (Bernardo)
 </details>
 </br>
 
 
 <details>
     <summary>
-        ✍️ 06 - Eu como aluno gostaria de visualizar detalhadamento avaliações de uma matéria.
+        ✍️ 06 - Eu como aluno gostaria de visualizar detalhadamente avaliações de uma matéria.
     </summary>
 
 ### Front
 
 - Mostar informações gerais (estrelas, ementa). (Thiago Miareli)
 - listar professores da matéria selecionada  (Gabriel Alves Reis)
-- lsitar avaliações da matéria selecionada. (Thiago Miareli)
+- listar avaliações da matéria selecionada. (Thiago Miareli)
 
     
 ### Back
-- Criar endpoint GET ```subject/${id}``` "Dados da Materia por ID" que retorna uma materia especifica, com todos seus dados:   (Luisa V. Toledo)
+- Criar endpoint GET ```subject/${id}``` "Dados da Materia por ID" que retorna uma matéria específica, com todos seus dados:   (Luisa Toledo)
 <code style="white-space:pre">
 {
     id
@@ -169,7 +169,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 }
 </code>
 
-- Criar endpoint GET ```evaluations/${subjectId}``` "Listar Avaliacoes dessa materia" que retorna todas as avaliacoes ja feitas dentro dessa materia
+- Criar endpoint GET ```evaluations/${subjectId}``` "Listar Avaliacoes dessa materia" que retorna todas as avaliações já feitas dentro dessa matéria
 
 </details>
 </br>
@@ -201,7 +201,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 - Criar lista de "minhas avaliações" na tela do aluno  (Thiago Miareli)
 
 ### Back
-- Criar enpoint GET ```evaluations/last``` "Lista ultimas avaliacoes do aluno" que retorna a lista com as ultimas avaliacoes desse aluno. (Luisa V. Toledo)
+- Criar enpoint GET ```evaluations/last``` "Lista ultimas avaliacoes do aluno" que retorna a lista com as últimas avaliações desse aluno. (Luisa Toledo)
 
 
 </details>
@@ -209,14 +209,14 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 
 <details>
     <summary>
-        ✍️ 09 - Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua dicencia.
+        ✍️ 09 - Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua discência.
     </summary>
 
 ### Front
-- Na tela de avaliação de professores, colocar um select/autocomplete com apenas os professores relacionados a matéria que está sendo avaliada.  (Gabriel Alves Reis)
+- Na tela de avaliação de professores, colocar um select/autocomplete com apenas os professores relacionados à matéria que está sendo avaliada.  (Gabriel Alves Reis)
 
 ### Back
-- Criar endpoint GET ```teachers/${subjectId}``` "Listar Professores da Materia" que retorna a lista com os professores associados a essa materia. (Bernardo)
+- Criar endpoint GET ```teachers/${subjectId}``` "Listar Professores da Materia" que retorna a lista com os professores associados a essa matéria. (Bernardo)
 </details>
 </br>
 
@@ -229,7 +229,7 @@ dados de usuario e cria um novo aluno, com email e senha. (Luisa V. Toledo)
 - Criar funcionalidade de deletar uma avaliação na tela do usuário. Utilizar rota: delete('evaluations/${id}'). (Thiago Miareli)
 
 ### Back
-- Criar endpoint DELETE ```evaluations/${id}``` "Deletar Avaliacao" que permite o usuario criador dessa avaliacao deleta-la. (Luisa V. C. Toledo)
+- Criar endpoint DELETE ```evaluations/${id}``` "Deletar Avaliacao" que permite o usuário criador dessa avaliação deletá-la. (Luisa Toledo)
 </details>
 
 
