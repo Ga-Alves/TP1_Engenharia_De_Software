@@ -35,7 +35,7 @@ Sistema de Avaliação de Matérias do Ensino Superior
 </br>
 ✍️ Eu como aluno gostaria de fazer login na plataforma utilizando meu email e minha senha.
 </br>
-✍️ Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis.
+✍️ Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis. (iterações futuras)
 </br>
 ✍️ Eu como aluno gostaria de visualizar uma lista de matérias disponíveis para avaliação.
 </br>
@@ -45,13 +45,13 @@ Sistema de Avaliação de Matérias do Ensino Superior
 </br>
 ✍️Eu como aluno gostaria de avaliar uma  matéria e um professor que tive aula.
 </br>
-✍️ Eu como aluno gostaria de visualizar as últimas avaliações que fiz.
+✍️ Eu como aluno gostaria de visualizar as últimas avaliações que fiz. (iterações futuras)
 </br>
- ✍️ Eu como aluno gostaria de buscar uma matéria pela ementa.
+ ✍️ Eu como aluno gostaria de buscar uma matéria pela ementa. (iterações futuras)
 </br>
 ✍️ Eu como aluno gostaria de ver todos os professores referentes a essa matéria para avaliar sua discência.
 </br>
- ✍️ Eu como aluno quero ser capaz de deletar uma avaliação que fiz.
+ ✍️ Eu como aluno quero ser capaz de deletar uma avaliação que fiz. (iterações futuras)
 </br>
 
 ## Backlog da Sprint
