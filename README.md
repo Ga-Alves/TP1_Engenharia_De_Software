@@ -98,7 +98,7 @@ dados de usuário e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 <details>
     <summary>
-        ✍️ 03 - Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis.
+        ✍️ 03 - Eu como aluno gostaria de visualizar os meus dados de cadastro e estudantis. (próxima iteração)
     </summary>
 
 ### Front
@@ -194,7 +194,7 @@ dados de usuário e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 <details>
     <summary>
-        ✍️ 08 - Eu como aluno gostaria de visualizar as últimas avaliações que fiz.
+        ✍️ 08 - Eu como aluno gostaria de visualizar as últimas avaliações que fiz. (próxima iteração)
     </summary>
 
 ### Front
@@ -222,7 +222,7 @@ dados de usuário e cria um novo aluno, com email e senha. (Luisa Toledo)
 
 <details>
     <summary>
-        ✍️ 10 - Eu como aluno quero ser capaz de deletar uma avaliação que fiz.
+        ✍️ 10 - Eu como aluno quero ser capaz de deletar uma avaliação que fiz. (próxima iteração)
     </summary>
     
 ### Front
